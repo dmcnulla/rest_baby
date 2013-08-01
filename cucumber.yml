@@ -1,3 +1,4 @@
 default: FIG_NEWTON_FILE=mock.yml --tags ~@wip --no-source --color --format pretty
 report: FIG_NEWTON_FILE=mock.yml --no-source --color --format progress --format html --out=features_report.html
 wip: FIG_NEWTON_FILE=mock.yml --tags @wip --no-source --color --format pretty
+core: FIG_NEWTON_FILE=mock.yml --tags @core --no-source --color --format pretty

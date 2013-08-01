@@ -32,8 +32,11 @@ When(/^I pause$/) do
   pause()
 end
 
-
 Then(/^I receive the following$/) do |message|
 	expect(@response.code).to eq('200')
 	expect(@response.body).to eq(message)
+end
+
+Then(/^the response prints like the following$/) do |response|
+  expect(@restbaby.print_last_response).to eq(response)
 end

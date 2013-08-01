@@ -1,6 +1,6 @@
 Feature: Create a basic rest client that can get, put, post, and delete
 
-@core @get
+@extended @get
 Scenario: client rest Get
   Given I have a mocked web service
   And I have "GET" service for "/test" as follows
@@ -8,12 +8,15 @@ Scenario: client rest Get
     {'Answer': 'What did you expect?'}
     """
   When I "GET" from "/test"
-  Then I receive the following
-    """
-    {'Answer': 'What did you expect?'}
-    """
+  Then the response prints like the following
+  """
+CODE = 200
+MESSAGE = 
+BODY = [Empty]
+  """
 
-@core @put
+
+@put @extended 
 Scenario: client rest Put
   Given I have a mocked web service
   And I have "PUT" service for "/test" as follows
@@ -24,12 +27,14 @@ Scenario: client rest Put
     """
     {'Answer': 'What did you expect?'}
     """
-  Then I receive the following
-    """
-    {'Answer': 'What did you expect?'}
-    """
+  Then the response prints like the following
+  """
+CODE = 200
+MESSAGE = 
+BODY = [Empty]
+  """
 
-@core @post
+@post @extended 
 Scenario: client rest Post
   Given I have a mocked web service
   And I have "POST" service for "/test" as follows
@@ -40,12 +45,14 @@ Scenario: client rest Post
     """
     {'Answer': 'What did you expect?'}
     """
-  Then I receive the following
-    """
-    {'Answer': 'What did you expect?'}
-    """
+  Then the response prints like the following
+  """
+CODE = 200
+MESSAGE = 
+BODY = [Empty]
+  """
 
-@core @delete
+@delete @extended 
 Scenario: client rest Delete
   Given I have a mocked web service
   And I have "DELETE" service for "/test" as follows
@@ -53,7 +60,9 @@ Scenario: client rest Delete
     {'Answer': 'What did you expect?'}
     """
   When I "DELETE" from "/test"
-  Then I receive the following
-    """
-    {'Answer': 'What did you expect?'}
-    """
+  Then the response prints like the following
+  """
+CODE = 200
+MESSAGE = 
+BODY = [Empty]
+  """
