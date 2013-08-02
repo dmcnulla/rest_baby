@@ -10,15 +10,22 @@ Dave McNulla
 
 =end
 class RestBaby
-	attr_accessor :contentType, :uri, :wsresponse, :xId 
+	attr_accessor :contentType, :uri, :wsresponse, :headers
 
 	def initialize(url, headers = {})
 		@uri = URI.parse(url)
 		@headers = headers
+		@user = nil
+		@password = nil
 	end
 
 	def set_headers(headers)
 		@headers = @headers.merge(headers)
+	end
+
+	def set_auth(user, password)
+		new_url = "#{uri.scheme}://#{user}:#{password}@#{uri.host}:#{uri.port}#{uri.path}"
+		@uri = URI.parse(new_url)
 	end
 
 	#Basic web services Get command

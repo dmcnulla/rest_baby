@@ -1,7 +1,15 @@
+DEFAULT_MESSAGE = "{'Answer': 'What did you expect?'}"
+
 Given(/^I have a web service$/) do
+	@protocol = 'http'
 	@server = FigNewton.server
 	@port = FigNewton.port
-  @mockservice = MockRestService.new(@server, @port)
+  @mockservice = MockRestService.new(@server, @port, @protocol)
+end
+
+Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)"$/) do |type, path|
+	@path = path
+	@mockservice.store_msg(type, path, DEFAULT_MESSAGE)
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" as follows$/) do |type, path, message|
@@ -10,7 +18,7 @@ Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" as follows$/) do |typ
 end
 
 Given(/^I am a rest client$/) do
-	@restbaby = RestBaby.new("http://#{@server}:#{@port}#{@path}")
+	@restbaby = RestBaby.new("#{@protocol}://#{@server}:#{@port}#{@path}")
 end
 
 When(/^I "(GET|DELETE)" from the web service$/) do |type|
@@ -31,12 +39,13 @@ When(/^I "(PUT|POST)" to the web service with the following$/) do |type, message
 	end
 end
 
-When(/^I have the following headers?$/) do |table|
-	@restbaby.set_headers(table.rows_hash)
-end
-
 When(/^I pause$/) do
   pause()
+end
+
+Then(/^I receive the expected message$/) do
+	expect(@response.code).to eq('200')
+	expect(@response.body).to eq(DEFAULT_MESSAGE)
 end
 
 Then(/^I receive the following$/) do |message|

@@ -2,23 +2,47 @@ require 'webmock/cucumber'
 # include PinchHitter
 
 class MockRestService
-  def initialize(host, port)
+
+  STANDARD_HEADERS = {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}
+  STANDARD = "http"
+  SECURE = "https"
+
+
+  def initialize(host, port, protocol = STANDARD)
     @host = host
     @port = port
     @messages = {}
   end
 
-  def store_msg(type, path, message)
+  # def store_msg(type, path, message)
+  #   case type.downcase
+  #   when "get", "delete"
+  #     WebMock.stub_request(type.downcase.to_sym, "http://#{@host}:#{@port}#{path}").
+  #       with(:headers => STANDARD_HEADERS).
+  #       to_return({:body => "#{message}", :status => 200}, :headers => {})
+  #   when "post", "put"
+  #     WebMock.stub_request(type.downcase.to_sym, "http://#{@host}:#{@port}#{path}").
+  #       with(:headers => STANDARD_HEADERS).
+  #       to_return(:status => 200, :body => "#{message}", :headers => {})
+  #   else
+  #     raise "Unsupported type: #{type}"
+  #   end
+  # end    
+
+  def store_msg(type, path, message, headers = {}, user = nil, password = nil)
+    new_headers = STANDARD_HEADERS.merge(headers)
+    auth_string = "#{user}:#{password}@" unless (user.nil? || password.nil?)
     case type.downcase
-    when "get", "delete"
-      WebMock.stub_request(type.downcase.to_sym, "http://#{@host}:#{@port}#{path}").
-        to_return({:body => "#{message}", :status => 200})
-    when "post", "put"
-      WebMock.stub_request(type.downcase.to_sym, "http://#{@host}:#{@port}#{path}").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
-        to_return(:status => 200, :body => "#{message}", :headers => {})
-    else
-      raise "Unsupported type: #{type}"
+      when "get", "delete"
+        WebMock.stub_request(type.downcase.to_sym, "http://#{auth_string}#{@host}:#{@port}#{path}").
+          with(:headers => new_headers).
+          to_return({:body => "#{message}", :status => 200}, :headers => {})
+      when "post", "put"
+        WebMock.stub_request(type.downcase.to_sym, "http://#{auth_string}#{@host}:#{@port}#{path}").
+          with(:headers => new_headers).
+          to_return(:status => 200, :body => "#{message}", :headers => {})
+      else
+        raise "Unsupported type: #{type}"
     end
   end    
 
