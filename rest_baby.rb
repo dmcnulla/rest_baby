@@ -72,6 +72,7 @@ class RestBaby
 		@headers.merge(headers).each { |key, value| request[key] = value }
 		request.body = body unless body.nil?
 		http = Net::HTTP.new(@uri.host, @uri.port)
+		http.use_ssl = true if @uri.scheme == 'https'
 		begin
 			@wsresponse = http.request(request)
 			return @wsresponse

@@ -28,8 +28,17 @@ Scenario: client uses an Accept and a Content-Type header for a POST
   Then I receive the expected message
 
 @extended @post @authentication
-Scenario: client uses an Accept and a Content-Type header for a GET
+Scenario: client uses basic authentication
   Given I have a web service
+  And I have "GET" service for "/test"
+  And I am a rest client
+  And I have basic auth for user "test" and password "rest"
+  And I "GET" from the web service
+  Then I receive the expected message
+
+@extended @post @authentication
+Scenario: client uses a secure web server
+  Given I have a secure web service
   And I have "GET" service for "/test"
   And I am a rest client
   And I have basic auth for user "test" and password "rest"

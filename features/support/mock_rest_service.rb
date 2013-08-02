@@ -7,38 +7,23 @@ class MockRestService
   STANDARD = "http"
   SECURE = "https"
 
-
   def initialize(host, port, protocol = STANDARD)
+    @protocol = protocol
     @host = host
     @port = port
     @messages = {}
-  end
-
-  # def store_msg(type, path, message)
-  #   case type.downcase
-  #   when "get", "delete"
-  #     WebMock.stub_request(type.downcase.to_sym, "http://#{@host}:#{@port}#{path}").
-  #       with(:headers => STANDARD_HEADERS).
-  #       to_return({:body => "#{message}", :status => 200}, :headers => {})
-  #   when "post", "put"
-  #     WebMock.stub_request(type.downcase.to_sym, "http://#{@host}:#{@port}#{path}").
-  #       with(:headers => STANDARD_HEADERS).
-  #       to_return(:status => 200, :body => "#{message}", :headers => {})
-  #   else
-  #     raise "Unsupported type: #{type}"
-  #   end
-  # end    
+  end  
 
   def store_msg(type, path, message, headers = {}, user = nil, password = nil)
     new_headers = STANDARD_HEADERS.merge(headers)
     auth_string = "#{user}:#{password}@" unless (user.nil? || password.nil?)
     case type.downcase
       when "get", "delete"
-        WebMock.stub_request(type.downcase.to_sym, "http://#{auth_string}#{@host}:#{@port}#{path}").
+        WebMock.stub_request(type.downcase.to_sym, "#{@protocol}://#{auth_string}#{@host}:#{@port}#{path}").
           with(:headers => new_headers).
           to_return({:body => "#{message}", :status => 200}, :headers => {})
       when "post", "put"
-        WebMock.stub_request(type.downcase.to_sym, "http://#{auth_string}#{@host}:#{@port}#{path}").
+        WebMock.stub_request(type.downcase.to_sym, "#{@protocol}://#{auth_string}#{@host}:#{@port}#{path}").
           with(:headers => new_headers).
           to_return(:status => 200, :body => "#{message}", :headers => {})
       else
