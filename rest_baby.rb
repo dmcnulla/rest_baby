@@ -30,7 +30,7 @@ class RestBaby
 	# * body = data to put in the body
 	# * headers = header parameters including authorization and Content-Type
 	# The response from the rest server is returned
-	def post(path, body = nil, headers)
+	def post(path, body = nil, headers = {})
 		return request(uri, Net::HTTP::Post.new(@uri.request_uri), body, headers)
 	end
 
@@ -38,7 +38,7 @@ class RestBaby
 	# * url = url to send the command to
 	# * headers = header parameters including authorization and Content-Type
 	# The response from the rest server is returned
-	def delete(path, headers)
+	def delete(path, headers = {})
 		return request(uri, Net::HTTP::Delete.new(@uri.request_uri), headers)
 	end
 
@@ -47,7 +47,7 @@ class RestBaby
 	# * body = data to put in the body
 	# * headers = header parameters including authorization and Content-Type
 	# The response from the rest server is returned
-	def put(path, body = nil, headers)
+	def put(path, body = nil, headers = {})
 		return request(uri, Net::HTTP::Put.new(@uri.request_uri), body, headers)
 	end
 
@@ -57,7 +57,7 @@ class RestBaby
 	# * body = data to put in the body
 	# * headers = header parameters including authorization and Content-Type
 	# The response from the rest server is returned
-	def request(uri, request, body = nil, headers = {})
+	def request(uri, request, body = nil, headers)
 		@headers.merge(headers).each { |key, value| request[key] = value }
 		request.body = body unless body.nil?
 		http = Net::HTTP.new(@uri.host, @uri.port)
