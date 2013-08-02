@@ -2,12 +2,13 @@ Feature: Create a basic rest client that can get, put, post, and delete
 
 @extended @get
 Scenario: client rest Get
-  Given I have a mocked web service
+  Given I have a web service
   And I have "GET" service for "/test" as follows
     """
     {'Answer': 'What did you expect?'}
     """
-  When I "GET" from "/test"
+  And I am a rest client
+  When I "GET" from the web service
   Then the response prints like the following
   """
 CODE = 200
@@ -18,12 +19,13 @@ BODY = [Empty]
 
 @put @extended 
 Scenario: client rest Put
-  Given I have a mocked web service
+  Given I have a web service
   And I have "PUT" service for "/test" as follows
     """
     {'Answer': 'What did you expect?'}
     """
-  When I "PUT" to "/test" with the following
+  And I am a rest client
+  When I "PUT" to the web service with the following
     """
     {'Answer': 'What did you expect?'}
     """
@@ -36,12 +38,13 @@ BODY = [Empty]
 
 @post @extended 
 Scenario: client rest Post
-  Given I have a mocked web service
+  Given I have a web service
   And I have "POST" service for "/test" as follows
     """
     {'Answer': 'What did you expect?'}
     """
-  When I "POST" to "/test" with the following
+  And I am a rest client
+  When I "POST" to the web service with the following
     """
     {'Answer': 'What did you expect?'}
     """
@@ -54,12 +57,13 @@ BODY = [Empty]
 
 @delete @extended 
 Scenario: client rest Delete
-  Given I have a mocked web service
+  Given I have a web service
   And I have "DELETE" service for "/test" as follows
     """
     {'Answer': 'What did you expect?'}
     """
-  When I "DELETE" from "/test"
+  And I am a rest client
+  When I "DELETE" from the web service
   Then the response prints like the following
   """
 CODE = 200

@@ -1,31 +1,38 @@
-Given(/^I have a mocked web service$/) do
+Given(/^I have a web service$/) do
 	@server = FigNewton.server
 	@port = FigNewton.port
   @mockservice = MockRestService.new(@server, @port)
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" as follows$/) do |type, path, message|
+	@path = path
 	@mockservice.store_msg(type, path, message)
 end
 
-When(/^I "(GET|DELETE)" from "(.*?)"$/) do |type, path|
-	@restbaby = RestBaby.new("http://#{@server}:#{@port}#{path}")
+Given(/^I am a rest client$/) do
+	@restbaby = RestBaby.new("http://#{@server}:#{@port}#{@path}")
+end
+
+When(/^I "(GET|DELETE)" from the web service$/) do |type|
 	case type.downcase
 	when 'get'
-		@response = @restbaby.get(path)
+		@response = @restbaby.get(@path)
 	when 'delete'
-		@response = @restbaby.delete(path)
+		@response = @restbaby.delete(@path)
 	end
 end
 
-When(/^I "(PUT|POST)" to "(.*?)" with the following$/) do |type, path, message|
-	@restbaby = RestBaby.new("http://#{@server}:#{@port}#{path}")
+When(/^I "(PUT|POST)" to the web service with the following$/) do |type, message|
 	case type.downcase
 	when 'put'
-		@response = @restbaby.put(path, message)
+		@response = @restbaby.put(@path, message)
 	when 'post'
-		@response = @restbaby.post(path, message)
+		@response = @restbaby.post(@path, message)
 	end
+end
+
+When(/^I have the following headers?$/) do |table|
+	@restbaby.set_headers(table.rows_hash)
 end
 
 When(/^I pause$/) do

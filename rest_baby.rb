@@ -17,6 +17,10 @@ class RestBaby
 		@headers = headers
 	end
 
+	def set_headers(headers)
+		@headers = @headers.merge(headers)
+	end
+
 	#Basic web services Get command
 	# * url = url to send the command to
 	# * headers = header parameters including authorization and Content-Type
