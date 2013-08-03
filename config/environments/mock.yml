@@ -1,6 +1,4 @@
 server: 'localhost'
 port: '5555'
-# data_type: 'application/json'
-# path: '/test
-# # request_reply: '{"name":"OU812","ASIN":"B000002LEM"}'
-# log_level: 'INFO,WARNING,ERROR,FATAL'
+log_file: 'cucumber.log'
+log_level: 'DEBUG'

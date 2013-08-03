@@ -17,8 +17,3 @@ end
 Given(/^I have basic auth for user "(.*?)" and password "(.*?)"$/) do |user, password|
   @restbaby.set_auth(user, password)
 end
-
-# When(/^I "(.*?)" from the secure web service as user "(.*?)" and password "(.*?)"$/) do |type, user, password|
-# 	@restbaby.set_auth(user, password)
-#   pending # express the regexp above with the code you wish you had
-# end

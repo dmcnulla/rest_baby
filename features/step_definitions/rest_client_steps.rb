@@ -18,7 +18,7 @@ Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" as follows$/) do |typ
 end
 
 Given(/^I am a rest client$/) do
-	@restbaby = RestBaby.new("#{@protocol}://#{@server}:#{@port}#{@path}")
+	@restbaby = Client.new("#{@protocol}://#{@server}:#{@port}#{@path}")
 end
 
 When(/^I "(GET|DELETE)" from the web service$/) do |type|
