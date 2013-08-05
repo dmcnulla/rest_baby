@@ -10,6 +10,8 @@ Dave McNulla
 
 =end
 
+require 'net/http'
+require 'net/https'
 require "rest_baby/version"
 
 module RestBaby
