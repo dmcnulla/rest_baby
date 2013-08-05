@@ -79,6 +79,7 @@ module RestBaby
 			http.use_ssl = true if @uri.scheme == 'https'
 			begin
 				@wsresponse = http.request(request)
+				# puts print_last_response
 				return @wsresponse
 			rescue Timeout::Error => e 
 				raise e.message
@@ -92,13 +93,12 @@ module RestBaby
 		# Pretty print the web services response
 		# * response = web service response to print
 		def print_last_response
-			response = @wsresponse
-			output = "CODE = #{response.code}\n"
-			output << "MESSAGE = #{response.message}\n"
-			response.each { |key, value| output << "#{key} = #{value}\n"}
+			output = "CODE = #{@wsresponse.code}\n"
+			output << "MESSAGE = #{@wsresponse.message}\n"
+			@wsresponse.each { |key, value| output << "#{key} = #{value}\n"}
 			begin
 				output << "BODY = "
-			  output << "#{body(response.body)}\n" 
+			  output << "#{@wsresponse.body}" 
 			rescue
 				output << "[Empty]"
 			end
