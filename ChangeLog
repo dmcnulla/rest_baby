@@ -5,3 +5,9 @@
 * Supports secure ports
 * Basic Authentication
 * Allows altering headers
+=== Version 0.2 / 2013-08-06
+* Update documentation comments
+* Add generated rdoc
+* Fixed some README comments
+* Removed duplicate license file
+* Removed unnecessary attr_accessor entries from rest_baby.rb
