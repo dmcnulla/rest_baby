@@ -6,7 +6,7 @@ Small rest client
 
 Add this line to your application's Gemfile:
 
-	gem 'dojo_widgets'
+	gem 'rest_baby'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-	$ gem install dojo_widgets
+	$ gem install rest_baby
 
 ## Contributing
 

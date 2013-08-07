@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>header_options.feature - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../ChangeLog.html">ChangeLog</a>
+  
+    <li class="file"><a href="../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="../LICENSE_txt.html">LICENSE</a>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+    <li class="file"><a href="../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../features/header_options_feature.html">header_options.feature</a>
+  
+    <li class="file"><a href="../features/print_response_feature.html">print_response.feature</a>
+  
+    <li class="file"><a href="../features/rest_client_feature.html">rest_client.feature</a>
+  
+    <li class="file"><a href="../rest_baby_gemspec.html">rest_baby.gemspec</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Logger.html">Logger</a>
+  
+    <li><a href="../MockRestService.html">MockRestService</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../PinchRestService.html">PinchRestService</a>
+  
+    <li><a href="../RestBaby.html">RestBaby</a>
+  
+    <li><a href="../RestBaby/Client.html">RestBaby::Client</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>Feature: Create a basic rest client that can get, put, post, and delete</p>
+
+<p>@extended @get @headers Scenario: client uses an Accept header for a GET</p>
+
+<pre>Given I have a web service
+And I have &quot;GET&quot; service for &quot;/test&quot; with the following headers
+  | Accept | application/json |
+And I am a rest client
+When I have the following header 
+  | Accept | application/json |
+And I &quot;GET&quot; from the web service
+Then I receive the expected message</pre>
+
+<p>@extended @post @headers Scenario: client uses an Accept and a Content-Type
+header for a POST</p>
+
+<pre>Given I have a web service
+And I have &quot;POST&quot; service for &quot;/test&quot; with the following headers
+  | Content-Type | application/json |
+  | Accept       | application/json |
+And I am a rest client
+When I have the following header 
+  | Content-Type | application/json |
+  | Accept | application/json |
+And I &quot;POST&quot; to the web service with the following
+  &quot;&quot;&quot;
+  {&#39;Question&#39;: &#39;What is the meaning of life?&#39;}
+  &quot;&quot;&quot;
+Then I receive the expected message</pre>
+
+<p>@extended @post @authentication Scenario: client uses basic authentication</p>
+
+<pre>Given I have a web service
+And I have &quot;GET&quot; service for &quot;/test&quot;
+And I am a rest client
+And I have basic auth for user &quot;test&quot; and password &quot;rest&quot;
+And I &quot;GET&quot; from the web service
+Then I receive the expected message</pre>
+
+<p>@extended @post @authentication Scenario: client uses a secure web server</p>
+
+<pre>Given I have a secure web service
+And I have &quot;GET&quot; service for &quot;/test&quot;
+And I am a rest client
+And I have basic auth for user &quot;test&quot; and password &quot;rest&quot;
+And I &quot;GET&quot; from the web service
+Then I receive the expected message</pre>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

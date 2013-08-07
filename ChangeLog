@@ -1,0 +1,7 @@
+=== Version 0.1 / 2013-08-03
+* Basic implementation of rest_baby for use in my testing of restful services
+* Supports GET, POST, PUT, and DELETE actions
+* Prints out the return messages from the server
+* Supports secure ports
+* Basic Authentication
+* Allows altering headers
