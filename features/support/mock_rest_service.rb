@@ -1,6 +1,6 @@
 require 'webmock/cucumber'
 
-include WebMock
+include WebMock::API
 
 class MockRestService
 

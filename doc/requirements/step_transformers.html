@@ -1,0 +1,1508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Step Definitions and Transforms
+  
+    &mdash; Documentation by YARD 0.8.7
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/cucumber.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/cucumber.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (s)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../requirements.html" title="requirements (requirements)">requirements</a></span></span>
+     &raquo; 
+    <span class="title">step_transformers</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="feature_list_link"
+        href="../feature_list.html">
+      Features
+    </a>
+  
+    <a class="full_list_link" id="featuredirectories_list_link"
+        href="../featuredirectories_list.html">
+      Features by Directory
+    </a>
+  
+    <a class="full_list_link" id="tag_list_link"
+        href="../tag_list.html">
+      Tags
+    </a>
+  
+    <a class="full_list_link" id="step_list_link"
+        href="../step_list.html">
+      Steps
+    </a>
+  
+    <a class="full_list_link" id="stepdefinition_list_link"
+        href="../stepdefinition_list.html">
+      Step Defs
+    </a>
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div class="requirements">
+  <div class="title">Step Definitions &amp; Transforms</div>
+
+  <div class="summary">
+    <div>14<a href="#step_definitions">Step Definitions</a></div>
+    <div>0<a href="#step_transforms">Step Transforms</a></div>
+    <div>0<a href="#undefined_steps">Undefined Steps</a></div>
+  </div>
+
+</div><div class="title">
+  
+     <a class="control" id="stepdefinition">[Collapse All]</a>
+     <div style="clear: right;"></div>
+   
+ 
+  
+    <a name="step_definitions">
+  
+  <div class="name">Step Definitions</div>
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition8-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Given</span>
+    <span class="name">/^I am a rest client$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+am+a+rest+client%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:20</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">20
+21
+22</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Given</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I am a rest client$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+	<span class='ivar'>@restbaby</span> <span class='op'>=</span> <span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@protocol</span><span class='embexpr_end'>}</span><span class='tstring_content'>://</span><span class='embexpr_beg'>#{</span><span class='ivar'>@server</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@port</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='ivar'>@path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="12 steps">Hide 12 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I am a rest client
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:8</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:20</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:34</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:43</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:10</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:29</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:49</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:69</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:7</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:15</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:26</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:37</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition12-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Then</span>
+    <span class="name">/^I receive the expected message$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+receive+the+expected+message%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:46</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">46
+47
+48
+49</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Then</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I receive the expected message$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+	<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>200</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>DEFAULT_MESSAGE</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="12 steps">Hide 12 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            Then 
+          </span>
+          <span class="defined">
+            I receive the expected message
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:12</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:28</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:37</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:46</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:13</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:34</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:54</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:71</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:9</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:20</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:31</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:39</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition5-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Given</span>
+    <span class="name">/^I have a web service$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+have+a+web+service%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:3</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">3
+4
+5
+6
+7
+8</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Given</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I have a web service$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+	<span class='ivar'>@protocol</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http</span><span class='tstring_end'>&#39;</span></span>
+	<span class='ivar'>@server</span> <span class='op'>=</span> <span class='const'>FigNewton</span><span class='period'>.</span><span class='id identifier rubyid_server'>server</span>
+	<span class='ivar'>@port</span> <span class='op'>=</span> <span class='const'>FigNewton</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span>
+  <span class='ivar'>@mockservice</span> <span class='op'>=</span> <span class='const'>MockRestService</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@server</span><span class='comma'>,</span> <span class='ivar'>@port</span><span class='comma'>,</span> <span class='ivar'>@protocol</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="11 steps">Hide 11 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            Given 
+          </span>
+          <span class="defined">
+            I have a web service
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:5</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:16</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:32</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:5</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:24</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:44</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:64</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:5</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:13</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:24</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:35</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition9-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">When</span>
+    <span class="name">/^I "(GET|DELETE)" from the web service$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+%22%28GET%7CDELETE%29%22+from+the+web+service%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:24</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">24
+25
+26
+27
+28
+29
+30
+31</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>When</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I &quot;(GET|DELETE)&quot; from the web service$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_type'>type</span><span class='op'>|</span>
+	<span class='kw'>case</span> <span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+	<span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>get</span><span class='tstring_end'>&#39;</span></span>
+		<span class='ivar'>@response</span> <span class='op'>=</span> <span class='ivar'>@restbaby</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='ivar'>@path</span><span class='rparen'>)</span>
+	<span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>delete</span><span class='tstring_end'>&#39;</span></span>
+		<span class='ivar'>@response</span> <span class='op'>=</span> <span class='ivar'>@restbaby</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='ivar'>@path</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="7 steps">Hide 7 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I "<span class='match'>GET</span>" from the web service
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:11</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:36</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:45</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:12</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:8</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step even">
+        <div>
+          <span class="predicate">
+            When 
+          </span>
+          <span class="defined">
+            I "<span class='match'>DELETE</span>" from the web service
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:70</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:38</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition6-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Given</span>
+    <span class="name">/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)"$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+have+%22%28GET%7CPUT%7CPOST%7CDELETE%29%22+service+for+%22%28.%2A%3F%29%22%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:10</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">10
+11
+12
+13</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Given</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot;$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='op'>|</span>
+	<span class='ivar'>@path</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span>
+	<span class='ivar'>@mockservice</span><span class='period'>.</span><span class='id identifier rubyid_store_msg'>store_msg</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='const'>DEFAULT_MESSAGE</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="6 steps">Hide 6 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>GET</span>" service for "<span class='match'>/test</span>"
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:33</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:42</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:6</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step even">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>PUT</span>" service for "<span class='match'>/test</span>"
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:14</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>POST</span>" service for "<span class='match'>/test</span>"
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:25</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step even">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>DELETE</span>" service for "<span class='match'>/test</span>"
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:36</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition10-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">When</span>
+    <span class="name">/^I "(PUT|POST)" to the web service with the following$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+%22%28PUT%7CPOST%29%22+to+the+web+service+with+the+following%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:33</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">33
+34
+35
+36
+37
+38
+39
+40</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>When</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I &quot;(PUT|POST)&quot; to the web service with the following$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='op'>|</span>
+	<span class='kw'>case</span> <span class='id identifier rubyid_type'>type</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+	<span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>put</span><span class='tstring_end'>&#39;</span></span>
+		<span class='ivar'>@response</span> <span class='op'>=</span> <span class='ivar'>@restbaby</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='ivar'>@path</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+	<span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>post</span><span class='tstring_end'>&#39;</span></span>
+		<span class='ivar'>@response</span> <span class='op'>=</span> <span class='ivar'>@restbaby</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='ivar'>@path</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="5 steps">Hide 5 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I "<span class='match'>POST</span>" to the web service with the following
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:24</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:50</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:27</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step even">
+        <div>
+          <span class="predicate">
+            When 
+          </span>
+          <span class="defined">
+            I "<span class='match'>PUT</span>" to the web service with the following
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:30</a>
+        
+        <a class="definition" style="clear: right;" href="features/rest_client.html">features/rest_client.feature:16</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition7-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Given</span>
+    <span class="name">/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" as follows$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+have+%22%28GET%7CPUT%7CPOST%7CDELETE%29%22+service+for+%22%28.%2A%3F%29%22+as+follows%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:15</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">15
+16
+17
+18</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Given</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot; as follows$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='op'>|</span>
+	<span class='ivar'>@path</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span>
+	<span class='ivar'>@mockservice</span><span class='period'>.</span><span class='id identifier rubyid_store_msg'>store_msg</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="4 steps">Hide 4 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>GET</span>" service for "<span class='match'>/test</span>" as follows
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:6</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step even">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>PUT</span>" service for "<span class='match'>/test</span>" as follows
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:25</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>POST</span>" service for "<span class='match'>/test</span>" as follows
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:45</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step even">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>DELETE</span>" service for "<span class='match'>/test</span>" as follows
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:65</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition14-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Then</span>
+    <span class="name">/^the response prints like the following$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5Ethe+response+prints+like+the+following%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:56</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">56
+57
+58</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Then</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^the response prints like the following$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_response'>response</span><span class='op'>|</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@restbaby</span><span class='period'>.</span><span class='id identifier rubyid_print_last_response'>print_last_response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="4 steps">Hide 4 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            the response prints like the following
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:14</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:35</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:55</a>
+        
+        <a class="definition" style="clear: right;" href="features/print_response.html">features/print_response.feature:72</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition4-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Given</span>
+    <span class="name">/^I have basic auth for user "(.*?)" and password "(.*?)"$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+have+basic+auth+for+user+%22%28.%2A%3F%29%22+and+password+%22%28.%2A%3F%29%22%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/header_steps.rb:17</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">17
+18
+19</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Given</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I have basic auth for user &quot;(.*?)&quot; and password &quot;(.*?)&quot;$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='op'>|</span>
+  <span class='ivar'>@restbaby</span><span class='period'>.</span><span class='id identifier rubyid_set_auth'>set_auth</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="2 steps">Hide 2 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have basic auth for user "<span class='match'>test</span>" and password "<span class='match'>rest</span>"
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:35</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:44</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition3-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">When</span>
+    <span class="name">/^I have the following headers?$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+have+the+following+headers%3F%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/header_steps.rb:13</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">13
+14
+15</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>When</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I have the following headers?$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_table'>table</span><span class='op'>|</span>
+	<span class='ivar'>@restbaby</span><span class='period'>.</span><span class='id identifier rubyid_set_headers'>set_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_table'>table</span><span class='period'>.</span><span class='id identifier rubyid_rows_hash'>rows_hash</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="2 steps">Hide 2 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            When 
+          </span>
+          <span class="defined">
+            I have the following header
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:9</a>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:21</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition2-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Given</span>
+    <span class="name">/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" with the following headers$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+have+%22%28GET%7CPUT%7CPOST%7CDELETE%29%22+service+for+%22%28.%2A%3F%29%22+with+the+following+headers%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/header_steps.rb:8</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">8
+9
+10
+11</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Given</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot; with the following headers$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_table'>table</span><span class='op'>|</span>
+	<span class='ivar'>@path</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span>
+	<span class='ivar'>@mockservice</span><span class='period'>.</span><span class='id identifier rubyid_store_msg'>store_msg</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='const'>DEFAULT_MESSAGE</span><span class='comma'>,</span> <span class='id identifier rubyid_table'>table</span><span class='period'>.</span><span class='id identifier rubyid_rows_hash'>rows_hash</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="2 steps">Hide 2 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>GET</span>" service for "<span class='match'>/test</span>" with the following headers
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:6</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      <div class="step even">
+        <div>
+          <span class="predicate">
+            And 
+          </span>
+          <span class="defined">
+            I have "<span class='match'>POST</span>" service for "<span class='match'>/test</span>" with the following headers
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:17</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        
+                        ">
+  <a name="step_definition1-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Given</span>
+    <span class="name">/^I have a secure web service$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+have+a+secure+web+service%24%2F" target="_blank">Rubular</a>
+      
+      
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/header_steps.rb:1</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">1
+2
+3
+4
+5
+6</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Given</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I have a secure web service$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+	<span class='ivar'>@protocol</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https</span><span class='tstring_end'>&#39;</span></span>
+ 	<span class='ivar'>@server</span> <span class='op'>=</span> <span class='const'>FigNewton</span><span class='period'>.</span><span class='id identifier rubyid_server'>server</span>
+	<span class='ivar'>@port</span> <span class='op'>=</span> <span class='const'>FigNewton</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span>
+  <span class='ivar'>@mockservice</span> <span class='op'>=</span> <span class='const'>MockRestService</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@server</span><span class='comma'>,</span> <span class='ivar'>@port</span><span class='comma'>,</span> <span class='ivar'>@protocol</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+      <div class='showSteps'>
+        [<a href='#' class='toggleSteps' alt="1 steps">Hide 1 steps</a>]
+      </div>
+    
+    <div class="steps">
+      
+      
+      <div class="step odd">
+        <div>
+          <span class="predicate">
+            Given 
+          </span>
+          <span class="defined">
+            I have a secure web service
+          </span>
+        </div>
+        
+        <a class="definition" style="clear: right;" href="features/headers/header_options.html">features/headers/header_options.feature:41</a>
+        
+        <div style="clear: both;"></div>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        nodefinitions
+                        ">
+  <a name="step_definition13-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">Then</span>
+    <span class="name">/^I receive the following$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+receive+the+following%24%2F" target="_blank">Rubular</a>
+      
+      | UNUSED
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:51</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">51
+52
+53
+54</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>Then</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I receive the following$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_message'>message</span><span class='op'>|</span>
+	<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>200</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+    <div class="steps">
+      
+      <div class="undefined">No steps were found to match this step definition.</div>
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+
+
+<div class="transformer stepdefinition
+                        nodefinitions
+                        ">
+  <a name="step_definition11-stepdefinition"></a>
+  <div class="title">
+    <span class="pre">When</span>
+    <span class="name">/^I pause$/</span>
+    <div style="float: right;">
+      <a href="http://rubular.com/?regex=%2F%5EI+pause%24%2F" target="_blank">Rubular</a>
+      
+      | UNUSED
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  <div class="details">
+    
+    <div class="meta" style="clear: right;">
+      <div class="file">features/step_definitions/rest_client_steps.rb:42</div>
+    </div>
+    
+    <!-- Comments -->
+    <div>
+      
+    </div>
+    
+
+    <!-- Source Code -->
+    <div class="method_details_list">
+      <table class="source_code">
+        <tr>
+          <td>
+            <pre class="lines">42
+43
+44</pre>
+          </td>
+          <td>
+            <pre class="code"><span class='const'>When</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^I pause$</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_pause'>pause</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matching Step Instances -->
+    
+    <div class="steps">
+      
+      <div class="undefined">No steps were found to match this step definition.</div>
+      
+    </div>
+    
+  </div>
+
+  <div style="margin: 30px 20px; border-top: 1px dotted #AAA;"></div>
+
+</div>
+
+<div class="title">
+  
+     <a class="control" id="steptransform">[Collapse All]</a>
+     <div style="clear: right;"></div>
+   
+ 
+  
+    <a name="step_transforms">
+  
+  <div class="name">Step Transforms</div>
+</div>
+
+<div class="title">
+  
+ 
+  
+    <a name="undefined_steps">
+  
+  <div class="name">Undefined Steps</div>
+</div>
+
+<div class="transformer">
+  <div class="steps">
+  
+    <div class="steps">
+      <div class="undefined">No undefined steps</div>
+    </div>
+    
+  </div>
+</div>
+</div>
+
+    <div id="footer">
+  Generated on Tue Aug  6 23:42:43 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>
