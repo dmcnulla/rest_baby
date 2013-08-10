@@ -37,4 +37,3 @@ Scenario: client rest DELETE
   And I am a rest client
   When I "DELETE" from the web service
   Then I receive the expected message
-  And I fail
