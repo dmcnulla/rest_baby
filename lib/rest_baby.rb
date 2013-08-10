@@ -55,7 +55,7 @@ module RestBaby
 		# * +url+ = url to send the command to
 		# * +headers+ = header parameters including authorization and Content-Type
 		# The response from the rest server is returned
-		def get(path, headers = {})
+		def get(headers = {})
 			return request(@uri, Net::HTTP::Get.new(@uri.request_uri), headers)
 		end
 
@@ -66,7 +66,7 @@ module RestBaby
 		# * +body+ = data to put in the body
 		# * +headers+ = header parameters including authorization and Content-Type
 		# The response from the rest server is returned
-		def post(path, body = nil, headers = {})
+		def post(body = nil, headers = {})
 			return request(@uri, Net::HTTP::Post.new(@uri.request_uri), body, headers)
 		end
 
@@ -76,7 +76,7 @@ module RestBaby
 		# * +url+ = url to send the command to
 		# * +headers+ = header parameters including authorization and Content-Type
 		# The response from the rest server is returned
-		def delete(path, headers = {})
+		def delete(headers = {})
 			return request(@uri, Net::HTTP::Delete.new(@uri.request_uri), headers)
 		end
 
@@ -87,7 +87,7 @@ module RestBaby
 		# * +body+ = data to put in the body
 		# * +headers+ = header parameters including authorization and Content-Type
 		# The response from the rest server is returned
-		def put(path, body = nil, headers = {})
+		def put(body = nil, headers = {})
 			return request(@uri, Net::HTTP::Put.new(@uri.request_uri), body, headers)
 		end
 

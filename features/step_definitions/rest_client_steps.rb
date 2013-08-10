@@ -24,18 +24,19 @@ end
 When(/^I "(GET|DELETE)" from the web service$/) do |type|
 	case type.downcase
 	when 'get'
-		@response = @restbaby.get(@path)
+		@response = @restbaby.get
 	when 'delete'
-		@response = @restbaby.delete(@path)
+		# @response = @restbaby.delete(@path)
+		@response = @restbaby.delete
 	end
 end
 
 When(/^I "(PUT|POST)" to the web service with the following$/) do |type, message|
 	case type.downcase
 	when 'put'
-		@response = @restbaby.put(@path, message)
+		@response = @restbaby.put(message)
 	when 'post'
-		@response = @restbaby.post(@path, message)
+		@response = @restbaby.post(message)
 	end
 end
 
