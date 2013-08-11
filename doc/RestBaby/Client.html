@@ -157,7 +157,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(path, headers = {}) </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">- (Object) <strong>delete</strong>(headers = {}) </a>
     
 
     
@@ -181,7 +181,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get-instance_method" title="#get (instance method)">- (Object) <strong>get</strong>(path, headers = {}) </a>
+      <a href="#get-instance_method" title="#get (instance method)">- (Object) <strong>get</strong>(headers = {}) </a>
     
 
     
@@ -253,7 +253,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#post-instance_method" title="#post (instance method)">- (Object) <strong>post</strong>(path, body = nil, headers = {}) </a>
+      <a href="#post-instance_method" title="#post (instance method)">- (Object) <strong>post</strong>(body = nil, headers = {}) </a>
     
 
     
@@ -301,7 +301,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#put-instance_method" title="#put (instance method)">- (Object) <strong>put</strong>(path, body = nil, headers = {}) </a>
+      <a href="#put-instance_method" title="#put (instance method)">- (Object) <strong>put</strong>(body = nil, headers = {}) </a>
     
 
     
@@ -469,7 +469,7 @@ href="http://myrestservice.com:80/time">myrestservice.com:80/time</a></p>
       <div class="method_details first">
   <h3 class="signature first" id="delete-instance_method">
   
-    - (<tt>Object</tt>) <strong>delete</strong>(path, headers = {}) 
+    - (<tt>Object</tt>) <strong>delete</strong>(headers = {}) 
   
 
   
@@ -507,7 +507,7 @@ Content-Type</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rest_baby.rb', line 79</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 	<span class='kw'>return</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='ivar'>@uri</span><span class='comma'>,</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Delete</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@uri</span><span class='period'>.</span><span class='id identifier rubyid_request_uri'>request_uri</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -518,7 +518,7 @@ Content-Type</p>
       <div class="method_details ">
   <h3 class="signature " id="get-instance_method">
   
-    - (<tt>Object</tt>) <strong>get</strong>(path, headers = {}) 
+    - (<tt>Object</tt>) <strong>get</strong>(headers = {}) 
   
 
   
@@ -556,7 +556,7 @@ Content-Type</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rest_baby.rb', line 58</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 	<span class='kw'>return</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='ivar'>@uri</span><span class='comma'>,</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Get</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@uri</span><span class='period'>.</span><span class='id identifier rubyid_request_uri'>request_uri</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -597,7 +597,7 @@ Content-Type</p>
       <div class="method_details ">
   <h3 class="signature " id="post-instance_method">
   
-    - (<tt>Object</tt>) <strong>post</strong>(path, body = nil, headers = {}) 
+    - (<tt>Object</tt>) <strong>post</strong>(body = nil, headers = {}) 
   
 
   
@@ -637,7 +637,7 @@ Content-Type</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rest_baby.rb', line 69</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 	<span class='kw'>return</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='ivar'>@uri</span><span class='comma'>,</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@uri</span><span class='period'>.</span><span class='id identifier rubyid_request_uri'>request_uri</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -709,7 +709,7 @@ Content-Type</p>
       <div class="method_details ">
   <h3 class="signature " id="put-instance_method">
   
-    - (<tt>Object</tt>) <strong>put</strong>(path, body = nil, headers = {}) 
+    - (<tt>Object</tt>) <strong>put</strong>(body = nil, headers = {}) 
   
 
   
@@ -749,7 +749,7 @@ Content-Type</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rest_baby.rb', line 90</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 	<span class='kw'>return</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='ivar'>@uri</span><span class='comma'>,</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Put</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@uri</span><span class='period'>.</span><span class='id identifier rubyid_request_uri'>request_uri</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -927,7 +927,7 @@ Content-Type</p>
 </div>
 
     <div id="footer">
-  Generated on Tue Aug  6 23:42:42 2013 by
+  Generated on Sat Aug 10 17:19:41 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7 (ruby-2.0.0).
 </div>
