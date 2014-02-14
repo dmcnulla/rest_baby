@@ -80,6 +80,10 @@ module RestBaby
 			return request(@uri, Net::HTTP::Put.new(@uri.request_uri), body, headers)
 		end
 
+		def get_code
+			@wsresponse.code
+		end
+
 		# Sending the web services command
 		#
 		# @param uri [URI] Uri to send the command to
@@ -92,32 +96,67 @@ module RestBaby
 			request.body = body unless body.nil?
 			http = Net::HTTP.new(@uri.host, @uri.port)
 			http.use_ssl = true if @uri.scheme == 'https'
+			print_request(request, http, uri)
 			begin
 				@wsresponse = http.request(request)
-				# puts print_last_response
+				print_response(@wsresponse)
 				return @wsresponse
 			rescue Timeout::Error => e 
 				raise e.message
 			end
 		end
 		
-		def get_code
-			@wsresponse.code
-		end
-
-		# Pretty print the web services last response
-		def print_last_response
-			output = "CODE = #{@wsresponse.code}\n"
-			output << "MESSAGE = #{@wsresponse.message}\n"
-			@wsresponse.each { |key, value| output << "#{key} = #{value}\n"}
-			begin
-				output << "BODY = "
-			  output << "#{@wsresponse.body}" 
-			rescue
-				output << "[Empty]"
-			end
-			return output
-		end
 		
+		# Print the Request 
+		def print_request(request, http, uri)
+			if @verbose
+				puts ">> REQUEST"
+	        	puts ">  URL: #{uri.scheme}://#{uri.host}:#{uri.port}#{uri.path}"
+	        	puts ">  Headers: "
+	        	request.each { |key, value| puts " >  #{key}: #{value}" }
+	        	# puts "> Basic_Auth #{request.basic_auth}"
+		        puts ">  BODY = "
+		        if request.body.nil?
+		            puts "[Empty]"
+	            elsif request['Content-Type']=='application/json'
+		            jj JSON(request.body) 
+		        elsif request['Content-Type']=='text/csv'
+		            puts request.body
+		        elsif request['Content-Type']=='application/xml'
+		            puts pretty_xml(request.body)
+		        else
+		            puts request.body
+		        end
+		    end
+	    end
+ 
+		# Pretty print the web services last response
+		def print_response(response)
+			if @verbose
+		        puts "<< RESPONSE"
+		        puts " < CODE = #{response.code}"
+		        puts " < MESSAGE = #{response.message}"
+		        response.each { |key, value| puts " < #{key} = #{value}\n"}
+		        puts " < BODY = "
+		        if response.header['Content-Type']=='application/json'
+		            jj JSON(response.body) 
+		        elsif response.header['Content-Type']=='text/csv'
+		            puts response.body
+		        elsif response.header['Content-Type']=='application/xml'
+		            puts pretty_xml(body)
+		        elsif response.body.nil?
+		            puts "[Empty]"
+		        else 
+		            puts "#{response.body}\n<"
+		        end
+		    end
+	    end
+
+	    def pretty_xml(xml)
+	    	doc = Nokogiri.XML(xml) do |config|
+  				config.default_xml.noblanks
+  			end
+  			return doc.to_xml(:indent => 2)
+  		end
 	end
 end
