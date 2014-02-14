@@ -11,13 +11,6 @@ Scenario: client rest Get
 # And I pause
   When I "GET" from the web service
   Then I receive the expected message
-  And the response prints like the following
-  """
-CODE = 200
-MESSAGE = 
-BODY = {'Answer': 'What did you expect?'}
-  """
-
 
 @put @extended @print
 Scenario: client rest Put
@@ -32,12 +25,6 @@ Scenario: client rest Put
     {'Answer': 'What did you expect?'}
     """
   Then I receive the expected message
-  And the response prints like the following
-  """
-CODE = 200
-MESSAGE = 
-BODY = {'Answer': 'What did you expect?'}
-  """
 
 @post @extended @print
 Scenario: client rest Post
@@ -52,12 +39,6 @@ Scenario: client rest Post
     {'Answer': 'What did you expect?'}
     """
   Then I receive the expected message
-  And the response prints like the following
-  """
-CODE = 200
-MESSAGE = 
-BODY = {'Answer': 'What did you expect?'}
-  """
 
 @delete @extended @print
 Scenario: client rest Delete
@@ -69,9 +50,3 @@ Scenario: client rest Delete
   And I am a rest client
   When I "DELETE" from the web service
   Then I receive the expected message
-  And the response prints like the following
-  """
-CODE = 200
-MESSAGE = 
-BODY = {'Answer': 'What did you expect?'}
-  """

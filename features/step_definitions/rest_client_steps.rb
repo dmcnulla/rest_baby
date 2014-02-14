@@ -4,7 +4,7 @@ Given(/^I have a web service$/) do
 	@protocol = 'http'
 	@server = FigNewton.server
 	@port = FigNewton.port
-  @mockservice = MockRestService.new(@server, @port, @protocol)
+	@mockservice = MockRestService.new(@server, @port, @protocol)
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)"$/) do |type, path|
@@ -26,7 +26,6 @@ When(/^I "(GET|DELETE)" from the web service$/) do |type|
 	when 'get'
 		@response = @restbaby.get
 	when 'delete'
-		# @response = @restbaby.delete(@path)
 		@response = @restbaby.delete
 	end
 end
@@ -52,8 +51,4 @@ end
 Then(/^I receive the following$/) do |message|
 	expect(@response.code).to eq('200')
 	expect(@response.body).to eq(message)
-end
-
-Then(/^the response prints like the following$/) do |response|
-  expect(@restbaby.print_last_response).to eq(response)
 end

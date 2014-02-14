@@ -132,12 +132,13 @@ module RestBaby
  
 		# Pretty print the web services last response
 		def print_response(response)
+			response_string = ""
 			if @verbose
-		        puts "<< RESPONSE"
-		        puts " < CODE = #{response.code}"
-		        puts " < MESSAGE = #{response.message}"
-		        response.each { |key, value| puts " < #{key} = #{value}\n"}
-		        puts " < BODY = "
+		        response_string << "<< RESPONSE"
+		        response_string << " < CODE = #{response.code}"
+		        response_string << " < MESSAGE = #{response.message}"
+		        response.each { |key, value| response_string << " < #{key} = #{value}\n"}
+		        response_string << " < BODY = "
 		        if response.header['Content-Type']=='application/json'
 		            jj JSON(response.body) 
 		        elsif response.header['Content-Type']=='text/csv'
