@@ -12,3 +12,7 @@
 * Removed duplicate license file
 * Removed unnecessary attr_accessor entries from rest_baby.rb
 * Removed unused parameter from rest_baby client calls to rest services.
+=== Version 0.3 / 2013-02-13
+* Updated to use markdown for comments
+* Revised authentication
+* Added output optional using HTTP_DEBUG=TRUE or FALSE
