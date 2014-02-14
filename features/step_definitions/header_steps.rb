@@ -5,9 +5,14 @@ Given(/^I have a secure web service$/) do
 	@mockservice = MockRestService.new(@server, @port, @protocol)
 end
 
-Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" with the following headers$/) do |type, path, table|
+Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*) with the following headers$/) do |type, path, table|
 	@path = path
 	@mockservice.store_msg(type, path, DEFAULT_MESSAGE, table.rows_hash)
+end
+
+Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*) for user "([^"]*) and password "([^"]*)$/) do |type, path, user, password, table|
+	@path = path
+	@mockservice.store_msg(type, path, DEFAULT_MESSAGE, table.rows_hash, user, password)
 end
 
 When(/^I have the following headers?$/) do |table|

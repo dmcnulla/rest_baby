@@ -1,6 +1,6 @@
 Feature: Create a basic rest client that can get, put, post, and delete
 
-@extended @get @headers
+@extended @get @headers @wip
 Scenario: client uses an Accept header for a GET
   Given I have a web service
   And I have "GET" service for "/test" with the following headers
@@ -11,7 +11,7 @@ Scenario: client uses an Accept header for a GET
   And I "GET" from the web service
   Then I receive the expected message
 
-@extended @post @headers
+@extended @post @headers @wip
 Scenario: client uses an Accept and a Content-Type header for a POST
   Given I have a web service
   And I have "POST" service for "/test" with the following headers
@@ -22,24 +22,24 @@ Scenario: client uses an Accept and a Content-Type header for a POST
     | Content-Type | application/json |
     | Accept | application/json |
   And I "POST" to the web service with the following
-    """
-    {'Question': 'What is the meaning of life?'}
-    """
+  """
+    {"Question": "What is the meaning of life?"}
+  """
   Then I receive the expected message
 
-@extended @post @authentication
+@extended @post @authentication @wip
 Scenario: client uses basic authentication
   Given I have a web service
-  And I have "GET" service for "/test"
+  And I have "GET" service for "/test" for user "test" and password "rest"
   And I am a rest client
   And I have basic auth for user "test" and password "rest"
   And I "GET" from the web service
   Then I receive the expected message
 
-@extended @post @authentication
+@extended @post @authentication @wip
 Scenario: client uses a secure web server
   Given I have a secure web service
-  And I have "GET" service for "/test"
+  And I have "GET" service for "/test" for user "test" and password "rest"
   And I am a rest client
   And I have basic auth for user "test" and password "rest"
   And I "GET" from the web service

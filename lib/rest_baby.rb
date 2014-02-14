@@ -5,12 +5,21 @@
 
 require 'net/http'
 require 'net/https'
-require "rest_baby/version"
+require 'json'
+require 'nokogiri'
+require 'rest_baby/version'
 
 # RestBaby is a small rest client. It encapsulates some of the details for creating and using the rest service.
+# @private
 module RestBaby
 	# Sends and receives data to a restful web service
 	class Client
+		# The WebService Response from the last call
+		attr_reader :wsresponse
+		# The user (for authentication)
+		attr_reader :user
+		# The password for the user (for authentication)
+		attr_reader  :password
 
 		# Creates a new rest client
 		#
@@ -19,11 +28,26 @@ module RestBaby
 		# @param headers [Hash] default headers to use.
 		# eg. '{ \"Content-Type\" => \"application/json\"}'
 		# Can be multiple headers separated by commas inside the brackets.
-		def initialize(url, headers = {})
-			@uri = URI.parse(url)
+		def initialize(url, headers = {}, user = nil, password = nil)
+			@url = url
 			@headers = headers
-			@user = nil
-			@password = nil
+			@user = user
+			@password = password
+
+			if ENV["DEBUG_HTTP"].nil?
+				@verbose = true
+			else
+				@verbose = ENV["DEBUG_HTTP"].downcase=='true' ? true : false
+			end
+		end
+
+		# Adds user/password to the rest client
+		#
+		# @param user [String] user that has authorization
+		# @param password [String] authorized user's password
+		def set_auth(user, password)
+			@user = user
+			@password = password
 		end
 
 		# Modifies the headers by merging new headers with current headers. 
@@ -33,41 +57,35 @@ module RestBaby
 			@headers = @headers.merge(headers)
 		end
 
-		# Modifies the authentication for the rest client
-		#
-		# * +user+ = authorized username
-		# * +password+ = password for the user
-		def set_auth(user, password)
-			new_url = "#{@uri.scheme}://#{user}:#{password}@#{@uri.host}:#{@uri.port}#{@uri.path}"
-			@uri = URI.parse(new_url)
-		end
-
 		# Basic web services Get command
 		#
 		# @param  path [String] Path of service to send the command to
 		# @param headers [String] header parameters including authorization and Content-Type
 		# @return The response from the rest server is returned
-		def get(headers = {})
-			return request(@uri, Net::HTTP::Get.new(@uri.request_uri), headers)
+		def get(headers = {}, path = '')
+			uri = URI.parse("#{@url}#{path}")
+			return request(uri, Net::HTTP::Get.new(uri.request_uri), nil, headers)
 		end
-
+ 
 		# Basic web services Post command
 		# 
 		# @param path [String] Path of service to send the command to
 		# @param body [Any type of string] Data to put in the body such as json or xml
 		# @param headers [Hash] header parameters including authorization and Content-Type
 		# @return The response from the rest server is returned
-		def post(body = nil, headers = {})
-			return request(@uri, Net::HTTP::Post.new(@uri.request_uri), body, headers)
+		def post(body = nil, headers = {}, path = '')
+			uri = URI.parse("#{@url}#{path}")
+			return request(uri, Net::HTTP::Post.new(uri.request_uri), body, headers)
 		end
-
+ 
 		# Basic web services Delete command
 		# 
 		# @param path [String] Path of service to send the command to
 		# @param headers [Hash] header parameters including authorization and Content-Type
 		# @return The response from the rest server is returned
-		def delete(headers = {})
-			return request(@uri, Net::HTTP::Delete.new(@uri.request_uri), headers)
+		def delete(headers = {}, path = '')
+			uri = URI.parse("#{@url}#{path}")
+			return request(uri, Net::HTTP::Delete.new(uri.request_uri), headers)
 		end
  
 		# Basic web services Put command
@@ -76,14 +94,27 @@ module RestBaby
 		# @param body [String] data to put in the body
 		# @param headers [Hash] header parameters including authorization and Content-Type
 		# @return Response from the rest server is returned
-		def put(body = nil, headers = {})
-			return request(@uri, Net::HTTP::Put.new(@uri.request_uri), body, headers)
+		def put(body = nil, headers = {}, path = '')
+			uri = URI.parse("#{@url}#{path}")
+			return request(uri, Net::HTTP::Put.new(uri.request_uri), body, headers)
 		end
 
+		# Get the code from the last call
+		#
+		# @return the http code such as 200, 301, 403, 404, or 500
 		def get_code
 			@wsresponse.code
 		end
+ 
+		# Set verbose on or off
+		#
+		# @param on [Boolean] True=verbose, False=Not verbose
+		def set_verbose(on = true)
+			@verbose = on
+		end
 
+		private
+ 
 		# Sending the web services command
 		#
 		# @param uri [URI] Uri to send the command to
@@ -91,11 +122,12 @@ module RestBaby
 		# @param body [String] data to put in the body
 		# @param headers [Hash] header parameters including authorization and Content-Type
 		# @return The response from the rest server is returned
-		def request(uri, request, body = nil, headers)
+		def request(uri, request, body = nil, headers = {})
 			@headers.merge(headers).each { |key, value| request[key] = value }
+			request.basic_auth(@user, @password) unless @user.nil?
 			request.body = body unless body.nil?
-			http = Net::HTTP.new(@uri.host, @uri.port)
-			http.use_ssl = true if @uri.scheme == 'https'
+			http = Net::HTTP.new(uri.host, uri.port)
+			http.use_ssl = true if uri.scheme == 'https'
 			print_request(request, http, uri)
 			begin
 				@wsresponse = http.request(request)
@@ -105,7 +137,6 @@ module RestBaby
 				raise e.message
 			end
 		end
-		
 		
 		# Print the Request 
 		def print_request(request, http, uri)
@@ -132,13 +163,12 @@ module RestBaby
  
 		# Pretty print the web services last response
 		def print_response(response)
-			response_string = ""
 			if @verbose
-		        response_string << "<< RESPONSE"
-		        response_string << " < CODE = #{response.code}"
-		        response_string << " < MESSAGE = #{response.message}"
-		        response.each { |key, value| response_string << " < #{key} = #{value}\n"}
-		        response_string << " < BODY = "
+		        puts "<< RESPONSE"
+		        puts " < CODE = #{response.code}"
+		        puts " < MESSAGE = #{response.message}"
+		        response.each { |key, value| puts " < #{key} = #{value}\n"}
+		        puts " < BODY = "
 		        if response.header['Content-Type']=='application/json'
 		            jj JSON(response.body) 
 		        elsif response.header['Content-Type']=='text/csv'

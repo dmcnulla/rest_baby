@@ -20,13 +20,9 @@ class MockRestService
     auth_string = "#{user}:#{password}@" unless (user.nil? || password.nil?)
     case type.downcase
       when "get", "delete"
-        # WebMock.stub_request(type.downcase.to_sym, "#{@protocol}://#{auth_string}#{@host}:#{@port}#{path}").
-          # with(:headers => new_headers).
-          # to_return({:body => "#{message}", :status => 200}, :headers => {})
-        stub_request(type.downcase.to_sym, "#{@protocol}://#{auth_string}#{@host}:#{@port}#{path}").
+        WebMock.stub_request(type.downcase.to_sym, "#{@protocol}://#{auth_string}#{@host}:#{@port}#{path}").
           with(:headers => new_headers).
           to_return({:body => "#{message}", :status => 200}, :headers => {})
-
       when "post", "put"
         WebMock.stub_request(type.downcase.to_sym, "#{@protocol}://#{auth_string}#{@host}:#{@port}#{path}").
           with(:headers => new_headers).
