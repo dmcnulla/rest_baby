@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "cucumber", ">= 1.3.5"
   spec.add_development_dependency "fig_newton", ">= 0.9"
   spec.add_development_dependency "json", ">= 1.8.0"
-  spec.add_development_dependency "pinch_hitter", ">= 0.3"
   spec.add_development_dependency "rspec", ">= 2.14.1"
   spec.add_development_dependency "webmock", ">= 1.13.0"
 

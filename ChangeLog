@@ -11,3 +11,4 @@
 * Fixed some README comments
 * Removed duplicate license file
 * Removed unnecessary attr_accessor entries from rest_baby.rb
+* Removed unused parameter from rest_baby client calls to rest services.

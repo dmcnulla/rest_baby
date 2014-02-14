@@ -1,6 +1,5 @@
 require 'rspec-expectations'
 require 'fig_newton'
-require 'pinch_hitter'
 require 'cucumber/rspec/doubles'
 require 'rubygems'
 require 'webmock/cucumber'

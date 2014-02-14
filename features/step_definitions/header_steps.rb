@@ -2,7 +2,7 @@ Given(/^I have a secure web service$/) do
 	@protocol = 'https'
  	@server = FigNewton.server
 	@port = FigNewton.port
-  @mockservice = MockRestService.new(@server, @port, @protocol)
+	@mockservice = MockRestService.new(@server, @port, @protocol)
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" with the following headers$/) do |type, path, table|
@@ -15,5 +15,5 @@ When(/^I have the following headers?$/) do |table|
 end
 
 Given(/^I have basic auth for user "(.*?)" and password "(.*?)"$/) do |user, password|
-  @restbaby.set_auth(user, password)
+	@restbaby.set_auth(user, password)
 end
