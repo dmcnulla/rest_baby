@@ -1,6 +1,7 @@
 Feature: Create a basic rest client that can get, put, post, and delete
 
 @extended @get @print
+@print.S1
 Scenario: client rest Get
   Given I have a web service
   And I have "GET" service for "/test" as follows
@@ -8,11 +9,11 @@ Scenario: client rest Get
     {'Answer': 'What did you expect?'}
     """
   And I am a rest client
-# And I pause
   When I "GET" from the web service
   Then I receive the expected message
 
 @put @extended @print
+@print.S2
 Scenario: client rest Put
   Given I have a web service
   And I have "PUT" service for "/test" as follows
@@ -27,6 +28,7 @@ Scenario: client rest Put
   Then I receive the expected message
 
 @post @extended @print
+@print.S3
 Scenario: client rest Post
   Given I have a web service
   And I have "POST" service for "/test" as follows
@@ -41,6 +43,7 @@ Scenario: client rest Post
   Then I receive the expected message
 
 @delete @extended @print
+@print.S4
 Scenario: client rest Delete
   Given I have a web service
   And I have "DELETE" service for "/test" as follows

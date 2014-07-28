@@ -14,6 +14,9 @@ require 'rest_baby/version'
 module RestBaby
 	# Sends and receives data to a restful web service
 	class Client
+			PARAMETER_STARTER = "?"
+			PARAMETER_SEPARATOR = "&"
+
 		# The WebService Response from the last call
 		attr_reader :wsresponse
 		# The user (for authentication)
@@ -59,11 +62,13 @@ module RestBaby
 
 		# Basic web services Get command
 		#
-		# @param  path [String] Path of service to send the command to
-		# @param headers [String] header parameters including authorization and Content-Type
+		# @param headers [Hash] header parameters including authorization and Content-Type
+		# @param path [String] Path of service to send the command to
+		# @param parameters [Hash] query string that added as part of the URL
 		# @return The response from the rest server is returned
-		def get(headers = {}, path = '')
-			uri = URI.parse("#{@url}#{path}")
+		def get(headers = {}, path = '', parameters = {})
+			full_path = path_with_params(path, parameters)
+			uri = URI.parse("#{@url}#{full_path}")
 			return request(uri, Net::HTTP::Get.new(uri.request_uri), nil, headers)
 		end
  
@@ -114,7 +119,12 @@ module RestBaby
 		end
 
 		private
- 
+
+		def path_with_params(path, params)
+		   encoded_params = URI.encode_www_form(params)
+		   [path, encoded_params].join("?")
+		end
+
 		# Sending the web services command
 		#
 		# @param uri [URI] Uri to send the command to
@@ -140,9 +150,14 @@ module RestBaby
 		
 		# Print the Request 
 		def print_request(request, http, uri)
+			if uri.query==''
+				query = ''
+			else
+				query = "?#{uri.query}"
+			end
 			if @verbose
 				puts ">> REQUEST"
-	        	puts ">  URL: #{uri.scheme}://#{uri.host}:#{uri.port}#{uri.path}"
+	        	puts ">  URL: #{uri.scheme}://#{uri.host}:#{uri.port}#{uri.path}#{query}"
 	        	puts ">  Headers: "
 	        	request.each { |key, value| puts " >  #{key}: #{value}" }
 	        	# puts "> Basic_Auth #{request.basic_auth}"

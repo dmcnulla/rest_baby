@@ -1,6 +1,7 @@
 Feature: Create a basic rest client that can get, put, post, and delete
 
 @core @get
+@rest.S1
 Scenario: client rest GET
   Given I have a web service
   And I have "GET" service for "/test"
@@ -9,6 +10,7 @@ Scenario: client rest GET
   Then I receive the expected message
 
 @core @put
+@rest.S2
 Scenario: client rest PUT
   Given I have a web service
   And I have "PUT" service for "/test"
@@ -20,6 +22,7 @@ Scenario: client rest PUT
   Then I receive the expected message
 
 @core @post
+@rest.S3
 Scenario: client rest POST
   Given I have a web service
   And I have "POST" service for "/test"
@@ -31,6 +34,7 @@ Scenario: client rest POST
   Then I receive the expected message
 
 @core @delete
+@rest.S4
 Scenario: client rest DELETE
   Given I have a web service
   And I have "DELETE" service for "/test"

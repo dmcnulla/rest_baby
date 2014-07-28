@@ -4,7 +4,8 @@ include WebMock::API
 
 class MockRestService
 
-  STANDARD_HEADERS = {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}
+  # STANDARD_HEADERS = {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}
+  STANDARD_HEADERS = {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}
   STANDARD = "http"
   SECURE = "https"
 
@@ -30,6 +31,15 @@ class MockRestService
       else
         raise "Unsupported type: #{type}"
     end
-  end    
+  end
 
+  def store_get_query(path, headers = {}, user = nil, password = nil)
+    new_headers = STANDARD_HEADERS.merge(headers)
+    params = Hash.new
+    message = path.split('?').last
+    auth_string = "#{user}:#{password}@" unless (user.nil? || password.nil?)
+    WebMock.stub_request(:get, "#{@protocol}://#{auth_string}#{@host}:#{@port}#{path}").
+      with(:headers => new_headers).
+      to_return({:body => "#{message}", :status => 200}, :headers => {})
+  end
 end

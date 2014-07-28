@@ -8,13 +8,30 @@ Given(/^I have a web service$/) do
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)"$/) do |type, path|
-	@path = path
-	@mockservice.store_msg(type, path, DEFAULT_MESSAGE)
+	if type=="GET"
+		create_get(type, path)
+	else
+		@path = path
+		@mockservice.store_msg(type, path, DEFAULT_MESSAGE)
+	end
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" as follows$/) do |type, path, message|
-	@path = path
-	@mockservice.store_msg(type, path, message)
+	if type=="GET"
+		create_get(type, path, message)
+	else
+		@path = path
+		@mockservice.store_msg(type, path, message)
+	end
+end
+
+def create_get(type, path, message = DEFAULT_MESSAGE)
+	@path = path.split('?')[0]
+	if path.split('?').length==1
+		@mockservice.store_msg("GET", @path, message)
+	else
+		@mockservice.store_get_query(path)
+	end
 end
 
 Given(/^I am a rest client$/) do
@@ -39,16 +56,25 @@ When(/^I "(PUT|POST)" to the web service with the following$/) do |type, message
 	end
 end
 
+When(/^I "GET" from the web service with the parameters$/) do |table|
+	@response = @restbaby.get({}, nil, table.rows_hash)
+end
+
 When(/^I pause$/) do
   pause()
 end
 
 Then(/^I receive the expected message$/) do
-	expect(@response.code).to eq('200')
-	expect(@response.body).to eq(DEFAULT_MESSAGE)
+	@response.code.should eq('200')
+	@response.body.should eq(DEFAULT_MESSAGE)
 end
 
-Then(/^I receive the following$/) do |message|
-	expect(@response.code).to eq('200')
-	expect(@response.body).to eq(message)
+# Then(/^I receive the following$/) do |message|
+# 	@response.code.should eq('200')
+# 	@response.body.should eq(message)
+# end
+
+Then(/^I receive a message with "(.*?)"$/) do |message|
+	@response.code.should eq('200')
+	@response.body.should eq(message)
 end
