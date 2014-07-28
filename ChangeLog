@@ -16,6 +16,8 @@
 * Updated to use markdown for comments
 * Revised authentication
 * Added output optional using HTTP_DEBUG=TRUE or FALSE
-=== Version 0.4 / 2014-07-27
+=== Version 0.4 / 2014-06-12
+* Fixed unreported/untracked defect
+=== Version 0.5 / 2014-07-27
 * Enabled use of query parameters on GET calls
 * Revised tests to replace expect with should
