@@ -1,6 +1,7 @@
 Feature: Create a basic rest client that can get, put, post, and delete
 
-@extended @get @headers @wip
+@extended @get @header
+@header.S1
 Scenario: client uses an Accept header for a GET
   Given I have a web service
   And I have "GET" service for "/test" with the following headers
@@ -11,7 +12,8 @@ Scenario: client uses an Accept header for a GET
   And I "GET" from the web service
   Then I receive the expected message
 
-@extended @post @headers @wip
+@extended @post @headers
+@header.S2
 Scenario: client uses an Accept and a Content-Type header for a POST
   Given I have a web service
   And I have "POST" service for "/test" with the following headers
@@ -27,7 +29,8 @@ Scenario: client uses an Accept and a Content-Type header for a POST
   """
   Then I receive the expected message
 
-@extended @post @authentication @wip
+@extended @post @authentication
+@header.S3
 Scenario: client uses basic authentication
   Given I have a web service
   And I have "GET" service for "/test" for user "test" and password "rest"
@@ -36,7 +39,8 @@ Scenario: client uses basic authentication
   And I "GET" from the web service
   Then I receive the expected message
 
-@extended @post @authentication @wip
+@extended @post @authentication
+@header.S4
 Scenario: client uses a secure web server
   Given I have a secure web service
   And I have "GET" service for "/test" for user "test" and password "rest"

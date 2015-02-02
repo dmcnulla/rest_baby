@@ -1,4 +1,4 @@
-def pause()
-	print "Press Return to continue..."
+def pause
+  print 'Press Return to continue...'
   STDIN.getc
 end

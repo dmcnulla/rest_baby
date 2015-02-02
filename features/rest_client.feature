@@ -17,7 +17,7 @@ Scenario: client rest PUT
   And I am a rest client
   When I "PUT" to the web service with the following
     """
-    {'Question': 'What is the meaning of life?'}
+    {"Question": "What is the meaning of life?"}
     """
   Then I receive the expected message
 
@@ -29,7 +29,7 @@ Scenario: client rest POST
   And I am a rest client
   When I "POST" to the web service with the following
     """
-    {'Question': 'What is the meaning of life?'}
+    {"Question": "What is the meaning of life?"}
     """
   Then I receive the expected message
 

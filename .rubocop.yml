@@ -1,0 +1,20 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+    - 'lib/**/*'
+    - 'bin/**/*'
+  Exclude:
+    - 'features/**/*'
+
+# Configuration parameters: AllowURI, URISchemes.
+Metrics/LineLength:
+  Max: 81
+
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 14
+
+# Configuration parameters: CountKeywordArgs.
+Metrics/ParameterLists:
+  Max: 6

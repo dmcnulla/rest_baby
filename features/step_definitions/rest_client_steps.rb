@@ -1,72 +1,75 @@
-DEFAULT_MESSAGE = "{'Answer': 'What did you expect?'}"
+DEFAULT_MSG = "{\"Answer\": \"What did you expect?\"}"
 
 Given(/^I have a web service$/) do
-	@protocol = 'http'
-	@server = FigNewton.server
-	@port = FigNewton.port
-	@mockservice = MockRestService.new(@server, @port, @protocol)
+  @protocol = 'http'
+  @server = FigNewton.server
+  @port = FigNewton.port
+  @mockservice = MockRestService.new(@server, @port, @protocol)
 end
 
-Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)"$/) do |type, path|
-	if type=="GET"
-		create_get(type, path)
-	else
-		@path = path
-		@mockservice.store_msg(type, path, DEFAULT_MESSAGE)
-	end
+Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*)"$/) do |type, path|
+  if type == 'GET'
+    create_get(type, path)
+  else
+    @path = path
+    @mockservice.store_msg(type, path, DEFAULT_MSG)
+  end
 end
 
-Given(/^I have "(GET|PUT|POST|DELETE)" service for "(.*?)" as follows$/) do |type, path, message|
-	if type=="GET"
-		create_get(type, path, message)
-	else
-		@path = path
-		@mockservice.store_msg(type, path, message)
-	end
+Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*)" as follows$/) \
+do |type, path, message|
+  if type == 'GET'
+    create_get(type, path, message)
+  else
+    @path = path
+    @mockservice.store_msg(type, path, message)
+  end
 end
 
-def create_get(type, path, message = DEFAULT_MESSAGE)
-	@path = path.split('?')[0]
-	if path.split('?').length==1
-		@mockservice.store_msg("GET", @path, message)
-	else
-		@mockservice.store_get_query(path)
-	end
+def create_get(_type, path, message = DEFAULT_MSG)
+  @path = path.split('?')[0]
+  if path.split('?').length == 1
+    @mockservice.store_msg('GET', @path, message)
+  else
+    @mockservice.store_get_query(path)
+  end
 end
 
 Given(/^I am a rest client$/) do
-	@restbaby = Client.new("#{@protocol}://#{@server}:#{@port}#{@path}")
+  @restbaby = Client.new("#{@protocol}://#{@server}:#{@port}#{@path}")
 end
 
 When(/^I "(GET|DELETE)" from the web service$/) do |type|
-	case type.downcase
-	when 'get'
-		@response = @restbaby.get
-	when 'delete'
-		@response = @restbaby.delete
-	end
+  case type.downcase
+  when 'get'
+    @response = @restbaby.get
+  when 'delete'
+    @response = @restbaby.delete
+  end
 end
 
-When(/^I "(PUT|POST)" to the web service with the following$/) do |type, message|
-	case type.downcase
-	when 'put'
-		@response = @restbaby.put(message)
-	when 'post'
-		@response = @restbaby.post(message)
-	end
+When(/^I "(PUT|POST)" to the web service with the following$/) \
+do |type, message|
+  @message = JSON(message)
+  case type.downcase
+  when 'put'
+    @response = @restbaby.put(@message)
+  when 'post'
+    @response = @restbaby.post(@message)
+  end
 end
 
 When(/^I "GET" from the web service with the parameters$/) do |table|
-	@response = @restbaby.get({}, nil, table.rows_hash)
+  @response = @restbaby.get({}, nil, table.rows_hash)
 end
 
 When(/^I pause$/) do
-  pause()
+  pause
 end
 
 Then(/^I receive the expected message$/) do
-	@response.code.should eq('200')
-	@response.body.should eq(DEFAULT_MESSAGE)
+  @response.code.should eq('200')
+  expect(@response.body).to eq(DEFAULT_MSG)
 end
 
 # Then(/^I receive the following$/) do |message|
@@ -74,7 +77,7 @@ end
 # 	@response.body.should eq(message)
 # end
 
-Then(/^I receive a message with "(.*?)"$/) do |message|
-	@response.code.should eq('200')
-	@response.body.should eq(message)
+Then(/^I receive a message with "([^"]*)"$/) do |message|
+  @response.code.should eq('200')
+  @response.body.should eq(message)
 end
