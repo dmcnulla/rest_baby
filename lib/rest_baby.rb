@@ -159,12 +159,17 @@ module RestBaby
       return '[Empty]' if response_body.nil?
       case type
       when 'application/json'
-        JSON.pretty_generate(response_body)
+        pretty(response_body)
       when 'application/xml'
         pretty_xml(response_body)
       else
         "#{response_body}\n<"
       end
+    end
+
+    def pretty_json(json)
+      json = JSON(json) unless json.class == Hash
+      JSON.pretty_generate(json)
     end
 
     def pretty_xml(xml)

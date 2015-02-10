@@ -17,8 +17,10 @@ Scenario: client uses an Accept header for a GET
 Scenario: client uses an Accept and a Content-Type header for a POST
   Given I have a web service
   And I have "POST" service for "/test" with the following headers
-    | Content-Type | application/json |
-    | Accept       | application/json |
+    | Content-Type    | application/json                        |
+    | Accept          | application/json                        |
+    | Accept-Encoding | gzip;q=1.0,deflate;q=0.6,identity;q=0.3 |
+    | User-Agent      | Ruby                                    |
   And I am a rest client
   When I have the following header 
     | Content-Type | application/json |

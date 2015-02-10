@@ -15,18 +15,19 @@ class MockRestService
     @messages = {}
   end
 
-  def store_msg(type, path, message, headers = {}, user = nil, password = nil)
+  def store_msg(type, path, message, headers = {},
+                user = nil, password = nil, body = nil)
     url = "#{@protocol}://#{auth_string(user, password)}#{@host}:#{@port}#{path}"
     case type.downcase
     when 'get', 'delete'
       WebMock.stub_request(type.downcase.to_sym, url)
         .with(headers: merge_headers(headers))
-        .to_return({ status: 200, body: "#{message}" }, headers: {})
+        .to_return({ status: 200, body: message }, headers: {})
     when 'put', 'post'
-      WebMock.stub_request(:put, url)
+      WebMock.stub_request(type.downcase.to_sym, url)
         .with(body: body,
               headers: merge_headers(headers))
-        .to_return({ status: 200, body: "#{message}" }, headers: {})
+        .to_return({ status: 200, body: message }, headers: {})
     else
       fail "Unsupported type: #{type}"
     end

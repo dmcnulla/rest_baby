@@ -8,7 +8,7 @@ end
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*)" \
 with the following headers$/) do |type, path, table|
   @path = path
-  @mockservice.store_msg(type, path, DEFAULT_MSG, table.rows_hash)
+  @mockservice.store_msg(type, path, DEFAULT_MSG, table.rows_hash, nil, nil, DEFAULT_RESPONSE)
 end
 
 Given(/^I have "(GET|DELETE)" service for "([^"]*)" for \

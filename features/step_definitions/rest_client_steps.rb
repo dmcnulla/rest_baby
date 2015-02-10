@@ -1,4 +1,5 @@
-DEFAULT_MSG = "{\"Answer\": \"What did you expect?\"}"
+DEFAULT_MSG = '{"Answer": "What did you expect?"}'
+DEFAULT_RESPONSE = '{"Question": "What is the meaning of life?"}'
 
 Given(/^I have a web service$/) do
   @protocol = 'http'
@@ -8,25 +9,27 @@ Given(/^I have a web service$/) do
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*)"$/) do |type, path|
+  @path = path
   if type == 'GET'
-    create_get(type, path)
+    create_get(path)
   else
     @path = path
-    @mockservice.store_msg(type, path, DEFAULT_MSG)
+    @mockservice.store_msg(type, path, DEFAULT_MSG,
+                           {}, nil, nil, DEFAULT_RESPONSE)
   end
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*)" as follows$/) \
 do |type, path, message|
+  @path = path
   if type == 'GET'
-    create_get(type, path, message)
+    create_get(path, message)
   else
-    @path = path
-    @mockservice.store_msg(type, path, message)
+    @mockservice.store_msg(type, path, DEFAULT_MSG, {}, nil, nil, message)
   end
 end
 
-def create_get(_type, path, message = DEFAULT_MSG)
+def create_get(path, message = DEFAULT_MSG)
   @path = path.split('?')[0]
   if path.split('?').length == 1
     @mockservice.store_msg('GET', @path, message)
@@ -50,7 +53,7 @@ end
 
 When(/^I "(PUT|POST)" to the web service with the following$/) \
 do |type, message|
-  @message = JSON(message)
+  @message = message.strip
   case type.downcase
   when 'put'
     @response = @restbaby.put(@message)
@@ -71,11 +74,6 @@ Then(/^I receive the expected message$/) do
   @response.code.should eq('200')
   expect(@response.body).to eq(DEFAULT_MSG)
 end
-
-# Then(/^I receive the following$/) do |message|
-# 	@response.code.should eq('200')
-# 	@response.body.should eq(message)
-# end
 
 Then(/^I receive a message with "([^"]*)"$/) do |message|
   @response.code.should eq('200')

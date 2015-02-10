@@ -21,7 +21,9 @@
 === Version 0.5 / 2014-07-27
 * Enabled use of query parameters on GET calls
 * Revised tests to replace expect with should
-=== Version 0.5 / 2014-07-27
+=== Version 0.6 / 2015-02-01
 * Fixed reference to nokogiri' (~> 0)
 * Fixed all cukes, no more @wip
 * Added rubocop style-checker/lint compliance
+=== Version 0.7 / 2014-02-10
+* Fix json pretty_print
