@@ -159,7 +159,7 @@ module RestBaby
       return '[Empty]' if response_body.nil?
       case type
       when 'application/json'
-        pretty(response_body)
+        pretty_json(response_body)
       when 'application/xml'
         pretty_xml(response_body)
       else
