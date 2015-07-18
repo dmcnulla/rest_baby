@@ -16,6 +16,5 @@ YARD::Rake::YardocTask.new do |t|
 end
 
 Rake::Task["release"].enhance do
-  spec = Gem::Specification::load(Dir.glob("*.gemspec").first)
-  sh "gem inabox pkg/#{spec.name}-#{spec.version}.gem"
+  sh "gem push #{gem.package_dir}/#{gem.gem_file}"
 end
