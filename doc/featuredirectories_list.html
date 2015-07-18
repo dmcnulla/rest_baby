@@ -20,7 +20,11 @@
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -82,16 +86,16 @@
   
   
     <li class="r1">
-      <span class='object_link'><a href="requirements/features/rest_client.html" title="requirements::features::rest_client (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+      <span class='object_link'><a href="requirements/features/url_parameter.html" title="requirements::features::url_parameter (feature)">As a rest client I need to use URL parameters in order to send those parameters to a restful service.</a></span>
   <!--
       <span class='object_link'>
-         <a href="requirements/features/rest_client.html#scenario_0"
-             title="Create a basic rest client that can get, put, post, and delete">
-           Create a basic rest client that can get, put, post, and delete
+         <a href="requirements/features/url_parameter.html#scenario_0"
+             title="As a rest client I need to use URL parameters in order to send those parameters to a restful service.">
+           As a rest client I need to use URL parameters in order to send those parameters to a restful service.
          </a>
        </span>
    -->
-       <small>features/rest_client.feature:1</small>
+       <small>features/url_parameter.feature:1</small>
     </li>
   
   
@@ -115,47 +119,36 @@
         
   
   
-  
     <li class="r1">
-      <a class='toggle'></a>
-      <span class='object_link'><a href="requirements/features/headers.html" title="requirements::features::headers (featuredirectory)">Headers</a></span>
-      <small>headers</small>
-    </li>
-    
-
-
-
-<ul>
-  
-  
-    <li class="r1">
-      <span class='object_link'><a href="requirements/features/headers/header_options.html" title="requirements::features::headers::header_options (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+      <span class='object_link'><a href="requirements/features/rest_client.html" title="requirements::features::rest_client (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
   <!--
       <span class='object_link'>
-         <a href="requirements/features/headers/header_options.html#scenario_0"
+         <a href="requirements/features/rest_client.html#scenario_2"
              title="Create a basic rest client that can get, put, post, and delete">
            Create a basic rest client that can get, put, post, and delete
          </a>
        </span>
    -->
-       <small>features/headers/header_options.feature:1</small>
+       <small>features/rest_client.feature:1</small>
     </li>
   
   
         
   
-</ul>
-
-
-<!--  YARD::CodeObjects::Cucumber::FeatureDirectory -->
   
-<!-- 
-
-<ul>
+    <li class="r2">
+      <span class='object_link'><a href="requirements/features/header_options.html" title="requirements::features::header_options (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+  <!--
+      <span class='object_link'>
+         <a href="requirements/features/header_options.html#scenario_3"
+             title="Create a basic rest client that can get, put, post, and delete">
+           Create a basic rest client that can get, put, post, and delete
+         </a>
+       </span>
+   -->
+       <small>features/header_options.feature:1</small>
+    </li>
   
-</ul>
-
- -->
   
         
   

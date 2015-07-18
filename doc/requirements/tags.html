@@ -6,7 +6,7 @@
 <title>
   Tags
   
-    &mdash; Documentation by YARD 0.8.7
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -19,7 +19,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!requirements/tags.html";
 </script>
 
 
@@ -95,7 +95,7 @@
     <div id="content">
   <div id="tags" class="requirements">
     <script type="text/javascript" charset="utf-8">
-      var tag_list = [ '@authentication','@core','@delete','@extended','@get','@headers','@post','@print','@put' ];
+      var tag_list = [ '@authentication','@core','@delete','@extended','@get','@header','@header.S1','@header.S2','@header.S3','@header.S4','@headers','@parameter','@parameter.S1','@post','@print','@print.S1','@print.S2','@print.S3','@print.S4','@put','@rest.S1','@rest.S2','@rest.S3','@rest.S4' ];
 
       $(function() {
 
@@ -183,10 +183,25 @@
 <span class="tag" href="tags/delete.html">@delete</span>,
 <span class="tag" href="tags/extended.html">@extended</span>,
 <span class="tag" href="tags/get.html">@get</span>,
+<span class="tag" href="tags/header.html">@header</span>,
+<span class="tag" href="tags/header.S1.html">@header.S1</span>,
+<span class="tag" href="tags/header.S2.html">@header.S2</span>,
+<span class="tag" href="tags/header.S3.html">@header.S3</span>,
+<span class="tag" href="tags/header.S4.html">@header.S4</span>,
 <span class="tag" href="tags/headers.html">@headers</span>,
+<span class="tag" href="tags/parameter.html">@parameter</span>,
+<span class="tag" href="tags/parameter.S1.html">@parameter.S1</span>,
 <span class="tag" href="tags/post.html">@post</span>,
 <span class="tag" href="tags/print.html">@print</span>,
-<span class="tag" href="tags/put.html">@put</span>
+<span class="tag" href="tags/print.S1.html">@print.S1</span>,
+<span class="tag" href="tags/print.S2.html">@print.S2</span>,
+<span class="tag" href="tags/print.S3.html">@print.S3</span>,
+<span class="tag" href="tags/print.S4.html">@print.S4</span>,
+<span class="tag" href="tags/put.html">@put</span>,
+<span class="tag" href="tags/rest.S1.html">@rest.S1</span>,
+<span class="tag" href="tags/rest.S2.html">@rest.S2</span>,
+<span class="tag" href="tags/rest.S3.html">@rest.S3</span>,
+<span class="tag" href="tags/rest.S4.html">@rest.S4</span>
     </div>
 
     <div id="features">
@@ -197,7 +212,7 @@
       <ul style="padding-left: 0px;">
       
         <li class="feature odd ">
-        <span class='object_link'><a href="features/headers/header_options.html" title="requirements::features::headers::header_options (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+        <span class='object_link'><a href="features/url_parameter.html" title="requirements::features::url_parameter (feature)">As a rest client I need to use URL parameters in order to send those parameters to a restful service.</a></span>
           
           
         </li>
@@ -205,118 +220,15 @@
         
           <ul style="padding-left: 20px;">
           	
-          	<li class="scenario even  @extended @get @headers">
+          	<li class="scenario even  @parameter @parameter.S1">
           	  <span class='object_link'>
-             		<a href="features/headers/header_options.html#scenario0">
-             		  client uses an Accept header for a GET
+             		<a href="features/url_parameter.html#scenario0">
+             		  Send parameter to a service.
              		</a>
              	</span>
              	
               
-                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/get.html">@get</span>, <span class="tag" href="tags/headers.html">@headers</span></small>
-              
-          	</li>
-            
-          	
-          	<li class="scenario odd  @extended @post @headers">
-          	  <span class='object_link'>
-             		<a href="features/headers/header_options.html#scenario1">
-             		  client uses an Accept and a Content-Type header for a POST
-             		</a>
-             	</span>
-             	
-              
-                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/headers.html">@headers</span></small>
-              
-          	</li>
-            
-          	
-          	<li class="scenario even  @extended @post @authentication">
-          	  <span class='object_link'>
-             		<a href="features/headers/header_options.html#scenario2">
-             		  client uses basic authentication
-             		</a>
-             	</span>
-             	
-              
-                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/authentication.html">@authentication</span></small>
-              
-          	</li>
-            
-          	
-          	<li class="scenario odd  @extended @post @authentication">
-          	  <span class='object_link'>
-             		<a href="features/headers/header_options.html#scenario3">
-             		  client uses a secure web server
-             		</a>
-             	</span>
-             	
-              
-                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/authentication.html">@authentication</span></small>
-              
-          	</li>
-            
-          	
-          </ul>
-        
-      
-        <li class="feature even ">
-        <span class='object_link'><a href="features/print_response.html" title="requirements::features::print_response (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
-          
-          
-        </li>
-        
-        
-          <ul style="padding-left: 20px;">
-          	
-          	<li class="scenario odd  @extended @get @print">
-          	  <span class='object_link'>
-             		<a href="features/print_response.html#scenario0">
-             		  client rest Get
-             		</a>
-             	</span>
-             	
-              
-                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/get.html">@get</span>, <span class="tag" href="tags/print.html">@print</span></small>
-              
-          	</li>
-            
-          	
-          	<li class="scenario even  @put @extended @print">
-          	  <span class='object_link'>
-             		<a href="features/print_response.html#scenario1">
-             		  client rest Put
-             		</a>
-             	</span>
-             	
-              
-                - <small><span class="tag" href="tags/put.html">@put</span>, <span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/print.html">@print</span></small>
-              
-          	</li>
-            
-          	
-          	<li class="scenario odd  @post @extended @print">
-          	  <span class='object_link'>
-             		<a href="features/print_response.html#scenario2">
-             		  client rest Post
-             		</a>
-             	</span>
-             	
-              
-                - <small><span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/print.html">@print</span></small>
-              
-          	</li>
-            
-          	
-          	<li class="scenario even  @delete @extended @print">
-          	  <span class='object_link'>
-             		<a href="features/print_response.html#scenario3">
-             		  client rest Delete
-             		</a>
-             	</span>
-             	
-              
-                - <small><span class="tag" href="tags/delete.html">@delete</span>, <span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/print.html">@print</span></small>
+                - <small><span class="tag" href="tags/parameter.html">@parameter</span>, <span class="tag" href="tags/parameter.S1.html">@parameter.S1</span></small>
               
           	</li>
             
@@ -325,6 +237,70 @@
         
       
         <li class="feature odd ">
+        <span class='object_link'><a href="features/print_response.html" title="requirements::features::print_response (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+          
+          
+        </li>
+        
+        
+          <ul style="padding-left: 20px;">
+          	
+          	<li class="scenario even  @extended @get @print @print.S1">
+          	  <span class='object_link'>
+             		<a href="features/print_response.html#scenario0">
+             		  client rest Get
+             		</a>
+             	</span>
+             	
+              
+                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/get.html">@get</span>, <span class="tag" href="tags/print.html">@print</span>, <span class="tag" href="tags/print.S1.html">@print.S1</span></small>
+              
+          	</li>
+            
+          	
+          	<li class="scenario odd  @put @extended @print @print.S2">
+          	  <span class='object_link'>
+             		<a href="features/print_response.html#scenario1">
+             		  client rest Put
+             		</a>
+             	</span>
+             	
+              
+                - <small><span class="tag" href="tags/put.html">@put</span>, <span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/print.html">@print</span>, <span class="tag" href="tags/print.S2.html">@print.S2</span></small>
+              
+          	</li>
+            
+          	
+          	<li class="scenario even  @post @extended @print @print.S3">
+          	  <span class='object_link'>
+             		<a href="features/print_response.html#scenario2">
+             		  client rest Post
+             		</a>
+             	</span>
+             	
+              
+                - <small><span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/print.html">@print</span>, <span class="tag" href="tags/print.S3.html">@print.S3</span></small>
+              
+          	</li>
+            
+          	
+          	<li class="scenario odd  @delete @extended @print @print.S4">
+          	  <span class='object_link'>
+             		<a href="features/print_response.html#scenario3">
+             		  client rest Delete
+             		</a>
+             	</span>
+             	
+              
+                - <small><span class="tag" href="tags/delete.html">@delete</span>, <span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/print.html">@print</span>, <span class="tag" href="tags/print.S4.html">@print.S4</span></small>
+              
+          	</li>
+            
+          	
+          </ul>
+        
+      
+        <li class="feature even ">
         <span class='object_link'><a href="features/rest_client.html" title="requirements::features::rest_client (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
           
           
@@ -333,7 +309,7 @@
         
           <ul style="padding-left: 20px;">
           	
-          	<li class="scenario even  @core @get">
+          	<li class="scenario odd  @core @get @rest.S1">
           	  <span class='object_link'>
              		<a href="features/rest_client.html#scenario0">
              		  client rest GET
@@ -341,12 +317,12 @@
              	</span>
              	
               
-                - <small><span class="tag" href="tags/core.html">@core</span>, <span class="tag" href="tags/get.html">@get</span></small>
+                - <small><span class="tag" href="tags/core.html">@core</span>, <span class="tag" href="tags/get.html">@get</span>, <span class="tag" href="tags/rest.S1.html">@rest.S1</span></small>
               
           	</li>
             
           	
-          	<li class="scenario odd  @core @put">
+          	<li class="scenario even  @core @put @rest.S2">
           	  <span class='object_link'>
              		<a href="features/rest_client.html#scenario1">
              		  client rest PUT
@@ -354,12 +330,12 @@
              	</span>
              	
               
-                - <small><span class="tag" href="tags/core.html">@core</span>, <span class="tag" href="tags/put.html">@put</span></small>
+                - <small><span class="tag" href="tags/core.html">@core</span>, <span class="tag" href="tags/put.html">@put</span>, <span class="tag" href="tags/rest.S2.html">@rest.S2</span></small>
               
           	</li>
             
           	
-          	<li class="scenario even  @core @post">
+          	<li class="scenario odd  @core @post @rest.S3">
           	  <span class='object_link'>
              		<a href="features/rest_client.html#scenario2">
              		  client rest POST
@@ -367,12 +343,12 @@
              	</span>
              	
               
-                - <small><span class="tag" href="tags/core.html">@core</span>, <span class="tag" href="tags/post.html">@post</span></small>
+                - <small><span class="tag" href="tags/core.html">@core</span>, <span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/rest.S3.html">@rest.S3</span></small>
               
           	</li>
             
           	
-          	<li class="scenario odd  @core @delete">
+          	<li class="scenario even  @core @delete @rest.S4">
           	  <span class='object_link'>
              		<a href="features/rest_client.html#scenario3">
              		  client rest DELETE
@@ -380,7 +356,71 @@
              	</span>
              	
               
-                - <small><span class="tag" href="tags/core.html">@core</span>, <span class="tag" href="tags/delete.html">@delete</span></small>
+                - <small><span class="tag" href="tags/core.html">@core</span>, <span class="tag" href="tags/delete.html">@delete</span>, <span class="tag" href="tags/rest.S4.html">@rest.S4</span></small>
+              
+          	</li>
+            
+          	
+          </ul>
+        
+      
+        <li class="feature odd ">
+        <span class='object_link'><a href="features/header_options.html" title="requirements::features::header_options (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+          
+          
+        </li>
+        
+        
+          <ul style="padding-left: 20px;">
+          	
+          	<li class="scenario even  @extended @get @header @header.S1">
+          	  <span class='object_link'>
+             		<a href="features/header_options.html#scenario0">
+             		  client uses an Accept header for a GET
+             		</a>
+             	</span>
+             	
+              
+                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/get.html">@get</span>, <span class="tag" href="tags/header.html">@header</span>, <span class="tag" href="tags/header.S1.html">@header.S1</span></small>
+              
+          	</li>
+            
+          	
+          	<li class="scenario odd  @extended @post @headers @header.S2">
+          	  <span class='object_link'>
+             		<a href="features/header_options.html#scenario1">
+             		  client uses an Accept and a Content-Type header for a POST
+             		</a>
+             	</span>
+             	
+              
+                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/headers.html">@headers</span>, <span class="tag" href="tags/header.S2.html">@header.S2</span></small>
+              
+          	</li>
+            
+          	
+          	<li class="scenario even  @extended @post @authentication @header.S3">
+          	  <span class='object_link'>
+             		<a href="features/header_options.html#scenario2">
+             		  client uses basic authentication
+             		</a>
+             	</span>
+             	
+              
+                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/authentication.html">@authentication</span>, <span class="tag" href="tags/header.S3.html">@header.S3</span></small>
+              
+          	</li>
+            
+          	
+          	<li class="scenario odd  @extended @post @authentication @header.S4">
+          	  <span class='object_link'>
+             		<a href="features/header_options.html#scenario3">
+             		  client uses a secure web server
+             		</a>
+             	</span>
+             	
+              
+                - <small><span class="tag" href="tags/extended.html">@extended</span>, <span class="tag" href="tags/post.html">@post</span>, <span class="tag" href="tags/authentication.html">@authentication</span>, <span class="tag" href="tags/header.S4.html">@header.S4</span></small>
               
           	</li>
             
@@ -399,9 +439,9 @@
 </div>
 
     <div id="footer">
-  Generated on Sat Aug 10 17:19:42 2013 by
+  Generated on Fri Jul 17 23:12:44 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.0.0).
 </div>
 
   </body>

@@ -31,9 +31,9 @@
 * Fixed json pretty_print
 === Version 0.9 / 2015-
 * Remove double output of Body=
-* automated bundling and publishing of gem
 * fixed cuke that failed due to string-like class
 * removed config.ru from rubocop llist
 * changed .should to expect() in features/step_definitions/rest_client_steps.rb
 * removed Gemfile.lock file
-
+* automated bundling and publishing of gem
+* added yard and yard-cucumber to automate documenation

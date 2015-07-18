@@ -20,7 +20,11 @@
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -66,7 +70,7 @@
 
       <ul id="full_list" class="class">
         <li><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">Top Level Namespace</a></span></li>
-<li><span class='object_link'><a href="MockRestService.html" title="MockRestService (class)">MockRestService</a></span> &lt; Object<small class='search_info'>Top Level Namespace</small></li><li><span class='object_link'><a href="PinchRestService.html" title="PinchRestService (class)">PinchRestService</a></span> &lt; Object<small class='search_info'>Top Level Namespace</small></li><li><a class='toggle'></a> <span class='object_link'><a href="RestBaby.html" title="RestBaby (module)">RestBaby</a></span><small class='search_info'>Top Level Namespace</small></li><ul><li><span class='object_link'><a href="RestBaby/Client.html" title="RestBaby::Client (class)">Client</a></span> &lt; Object<small class='search_info'>RestBaby</small></li></ul>
+<li><span class='object_link'><a href="MockRestService.html" title="MockRestService (class)">MockRestService</a></span> &lt; Object<small class='search_info'>Top Level Namespace</small></li><li><a class='toggle'></a> <span class='object_link'><a href="RestBaby.html" title="RestBaby (module)">RestBaby</a></span><small class='search_info'>Top Level Namespace</small></li><ul><li><span class='object_link'><a href="RestBaby/Client.html" title="RestBaby::Client (class)">Client</a></span> &lt; Object<small class='search_info'>RestBaby</small></li></ul>
 
       </ul>
     </div>

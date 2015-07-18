@@ -20,7 +20,11 @@
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -73,8 +77,8 @@
 
 <li class="r2">
   <a class='toggle'></a>
-  <span class='object_link'><a href="requirements/features/headers/header_options.html" title="requirements::features::headers::header_options (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
-  <small>features/headers/header_options.feature:1</small>
+  <span class='object_link'><a href="requirements/features/url_parameter.html" title="requirements::features::url_parameter (feature)">As a rest client I need to use URL parameters in order to send those parameters to a restful service.</a></span>
+  <small>features/url_parameter.feature:1</small>
 </li>
 
 
@@ -82,101 +86,12 @@
   
   <li class="r1">
     <span class='object_link'>
-       <a href="requirements/features/headers/header_options.html#scenario_0"
-           title="client uses an Accept header for a GET">
-         client uses an Accept header for a GET
+       <a href="requirements/features/url_parameter.html#scenario_0"
+           title="Send parameter to a service.">
+         Send parameter to a service.
        </a>
      </span>
-     <small>features/headers/header_options.feature:4</small>
-  </li>
-        
-  
-  <li class="r2">
-    <span class='object_link'>
-       <a href="requirements/features/headers/header_options.html#scenario_1"
-           title="client uses an Accept and a Content-Type header for a POST">
-         client uses an Accept and a Content-Type header for a POST
-       </a>
-     </span>
-     <small>features/headers/header_options.feature:15</small>
-  </li>
-        
-  
-  <li class="r1">
-    <span class='object_link'>
-       <a href="requirements/features/headers/header_options.html#scenario_2"
-           title="client uses basic authentication">
-         client uses basic authentication
-       </a>
-     </span>
-     <small>features/headers/header_options.feature:31</small>
-  </li>
-        
-  
-  <li class="r2">
-    <span class='object_link'>
-       <a href="requirements/features/headers/header_options.html#scenario_3"
-           title="client uses a secure web server">
-         client uses a secure web server
-       </a>
-     </span>
-     <small>features/headers/header_options.feature:40</small>
-  </li>
-        
-  
-</ul>
-
-
-<li class="r1">
-  <a class='toggle'></a>
-  <span class='object_link'><a href="requirements/features/print_response.html" title="requirements::features::print_response (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
-  <small>features/print_response.feature:1</small>
-</li>
-
-
-<ul>
-  
-  <li class="r2">
-    <span class='object_link'>
-       <a href="requirements/features/print_response.html#scenario_0"
-           title="client rest Get">
-         client rest Get
-       </a>
-     </span>
-     <small>features/print_response.feature:4</small>
-  </li>
-        
-  
-  <li class="r1">
-    <span class='object_link'>
-       <a href="requirements/features/print_response.html#scenario_1"
-           title="client rest Put">
-         client rest Put
-       </a>
-     </span>
-     <small>features/print_response.feature:23</small>
-  </li>
-        
-  
-  <li class="r2">
-    <span class='object_link'>
-       <a href="requirements/features/print_response.html#scenario_2"
-           title="client rest Post">
-         client rest Post
-       </a>
-     </span>
-     <small>features/print_response.feature:43</small>
-  </li>
-        
-  
-  <li class="r1">
-    <span class='object_link'>
-       <a href="requirements/features/print_response.html#scenario_3"
-           title="client rest Delete">
-         client rest Delete
-       </a>
-     </span>
-     <small>features/print_response.feature:63</small>
+     <small>features/url_parameter.feature:5</small>
   </li>
         
   
@@ -185,8 +100,8 @@
 
 <li class="r2">
   <a class='toggle'></a>
-  <span class='object_link'><a href="requirements/features/rest_client.html" title="requirements::features::rest_client (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
-  <small>features/rest_client.feature:1</small>
+  <span class='object_link'><a href="requirements/features/print_response.html" title="requirements::features::print_response (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+  <small>features/print_response.feature:1</small>
 </li>
 
 
@@ -194,45 +109,157 @@
   
   <li class="r1">
     <span class='object_link'>
+       <a href="requirements/features/print_response.html#scenario_0"
+           title="client rest Get">
+         client rest Get
+       </a>
+     </span>
+     <small>features/print_response.feature:5</small>
+  </li>
+        
+  
+  <li class="r2">
+    <span class='object_link'>
+       <a href="requirements/features/print_response.html#scenario_1"
+           title="client rest Put">
+         client rest Put
+       </a>
+     </span>
+     <small>features/print_response.feature:17</small>
+  </li>
+        
+  
+  <li class="r1">
+    <span class='object_link'>
+       <a href="requirements/features/print_response.html#scenario_2"
+           title="client rest Post">
+         client rest Post
+       </a>
+     </span>
+     <small>features/print_response.feature:32</small>
+  </li>
+        
+  
+  <li class="r2">
+    <span class='object_link'>
+       <a href="requirements/features/print_response.html#scenario_3"
+           title="client rest Delete">
+         client rest Delete
+       </a>
+     </span>
+     <small>features/print_response.feature:47</small>
+  </li>
+        
+  
+</ul>
+
+
+<li class="r1">
+  <a class='toggle'></a>
+  <span class='object_link'><a href="requirements/features/rest_client.html" title="requirements::features::rest_client (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+  <small>features/rest_client.feature:1</small>
+</li>
+
+
+<ul>
+  
+  <li class="r2">
+    <span class='object_link'>
        <a href="requirements/features/rest_client.html#scenario_0"
            title="client rest GET">
          client rest GET
        </a>
      </span>
-     <small>features/rest_client.feature:4</small>
+     <small>features/rest_client.feature:5</small>
   </li>
         
   
-  <li class="r2">
+  <li class="r1">
     <span class='object_link'>
        <a href="requirements/features/rest_client.html#scenario_1"
            title="client rest PUT">
          client rest PUT
        </a>
      </span>
-     <small>features/rest_client.feature:12</small>
+     <small>features/rest_client.feature:14</small>
   </li>
         
   
-  <li class="r1">
+  <li class="r2">
     <span class='object_link'>
        <a href="requirements/features/rest_client.html#scenario_2"
            title="client rest POST">
          client rest POST
        </a>
      </span>
-     <small>features/rest_client.feature:23</small>
+     <small>features/rest_client.feature:26</small>
   </li>
         
   
-  <li class="r2">
+  <li class="r1">
     <span class='object_link'>
        <a href="requirements/features/rest_client.html#scenario_3"
            title="client rest DELETE">
          client rest DELETE
        </a>
      </span>
-     <small>features/rest_client.feature:34</small>
+     <small>features/rest_client.feature:38</small>
+  </li>
+        
+  
+</ul>
+
+
+<li class="r2">
+  <a class='toggle'></a>
+  <span class='object_link'><a href="requirements/features/header_options.html" title="requirements::features::header_options (feature)">Create a basic rest client that can get, put, post, and delete</a></span>
+  <small>features/header_options.feature:1</small>
+</li>
+
+
+<ul>
+  
+  <li class="r1">
+    <span class='object_link'>
+       <a href="requirements/features/header_options.html#scenario_0"
+           title="client uses an Accept header for a GET">
+         client uses an Accept header for a GET
+       </a>
+     </span>
+     <small>features/header_options.feature:5</small>
+  </li>
+        
+  
+  <li class="r2">
+    <span class='object_link'>
+       <a href="requirements/features/header_options.html#scenario_1"
+           title="client uses an Accept and a Content-Type header for a POST">
+         client uses an Accept and a Content-Type header for a POST
+       </a>
+     </span>
+     <small>features/header_options.feature:17</small>
+  </li>
+        
+  
+  <li class="r1">
+    <span class='object_link'>
+       <a href="requirements/features/header_options.html#scenario_2"
+           title="client uses basic authentication">
+         client uses basic authentication
+       </a>
+     </span>
+     <small>features/header_options.feature:36</small>
+  </li>
+        
+  
+  <li class="r2">
+    <span class='object_link'>
+       <a href="requirements/features/header_options.html#scenario_3"
+           title="client uses a secure web server">
+         client uses a secure web server
+       </a>
+     </span>
+     <small>features/header_options.feature:46</small>
   </li>
         
   
