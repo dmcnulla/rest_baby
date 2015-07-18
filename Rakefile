@@ -15,3 +15,8 @@ YARD::Rake::YardocTask.new do |t|
   t.files   = ['features/**/*.feature', 'features/**/*.rb']
   t.options = ['--any', '--extra', '--opts'] # optional
 end
+
+Rake::Task["release"].enhance do
+  spec = Gem::Specification::load(Dir.glob("*.gemspec").first)
+  sh "gem inabox pkg/#{spec.name}-#{spec.version}.gem"
+end

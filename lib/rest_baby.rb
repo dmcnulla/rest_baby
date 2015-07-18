@@ -137,7 +137,7 @@ module RestBaby
         ">  Headers:\n"\
         "#{header_text(request, '> ')}\n"\
         ">  BODY =\n"\
-        ">  BODY =\n#{body_text(request['Content-Type'], request.body)}"
+        "#{body_text(request['Content-Type'], request.body)}"
     end
 
     def print_response(response)

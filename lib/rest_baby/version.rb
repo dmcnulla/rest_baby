@@ -1,4 +1,4 @@
 # Identify the version
 module RestBaby
-  VERSION = '0.7'
+  VERSION = '0.9'
 end
