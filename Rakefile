@@ -17,6 +17,7 @@ end
 
 Rake::Task["release"].enhance do
   spec = Gem::Specification::load(Dir.glob("*.gemspec").first)
-  sh "gem build pkg/#{spec.name}-#{spec.version}.gem"
+  # sh "gem inabox pkg/#{spec.name}-#{spec.version}.gem"
+  # sh "gem build pkg/#{spec.name}-#{spec.version}.gem"
   sh "gem push pkg/#{spec.name}-#{spec.version}.gem"
 end
