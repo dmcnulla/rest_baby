@@ -37,3 +37,4 @@
 * removed Gemfile.lock file
 * automated bundling and publishing of gem
 * added yard and yard-cucumber to automate documenation
+=== Version 1.0 / 2015-07-17
