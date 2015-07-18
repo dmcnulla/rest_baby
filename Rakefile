@@ -16,5 +16,7 @@ YARD::Rake::YardocTask.new do |t|
 end
 
 Rake::Task["release"].enhance do
-  sh "gem push #{gem.package_dir}/#{gem.gem_file}"
+  spec = Gem::Specification::load(Dir.glob("*.gemspec").first)
+  sh "gem build pkg/#{spec.name}-#{spec.version}.gem"
+  sh "gem push pkg/#{spec.name}-#{spec.version}.gem"
 end
