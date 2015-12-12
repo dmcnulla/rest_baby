@@ -11,7 +11,11 @@ group :development do
   gem 'rspec'
   gem 'webmock'
   gem 'rubocop'
-  gem 'yard'
-  gem 'yard-cucumber'
-  gem 'redcarpet'
+  if ENV["JRUBY"] || RUBY_PLATFORM == "java"
+    # Skip the yard gems for jruby
+  else
+    gem 'yard'
+    gem 'yard-cucumber'
+    gem 'redcarpet'
+  end
 end
