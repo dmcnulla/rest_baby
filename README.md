@@ -2,6 +2,9 @@
 
 Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9). You can only updated docs in ruby, not jruby.
 
+## Coverage
+[![Coverage Status](https://coveralls.io/repos/dmcnulla/rest_baby/badge.svg?branch=master&service=github)](https://coveralls.io/github/dmcnulla/rest_baby?branch=master)
+
 ## Installation
 
 Add this line to your application's Gemfile:
