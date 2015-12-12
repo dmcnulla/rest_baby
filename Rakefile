@@ -14,3 +14,9 @@ task default: :features
 YARD::Rake::YardocTask.new do |t|
   t.files   = ['lib/**/*.rb', 'features/**/*.feature', 'features/**/*.rb']
 end
+
+task :clean do
+  `rm -rf doc`
+  `rm -rf .yardoc`
+  `git checkout doc`
+end
