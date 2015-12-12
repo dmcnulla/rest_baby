@@ -1,9 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'cucumber'
-gem 'fig_newton'
 gem 'json'
 gem 'nokogiri'
-gem 'rspec'
-gem 'webmock'
-gem 'rubocop'
+
+group :development, optional: true do
+  gem 'bundler'
+  gem 'rake'
+  gem 'cucumber'
+  gem 'fig_newton'
+  gem 'rspec'
+  gem 'webmock'
+  gem 'rubocop'
+  gem 'yard'
+  gem 'yard-cucumber'
+  gem 'redcarpet'
+end
