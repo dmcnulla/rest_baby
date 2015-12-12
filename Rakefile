@@ -19,7 +19,6 @@ end
 
 task default: :features
 
-
 task :clean do
   `rm -rf doc`
   `rm -rf .yardoc`

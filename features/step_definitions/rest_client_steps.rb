@@ -32,7 +32,7 @@ end
 def create_get(path, message = DEFAULT_MSG)
   @path = path.split('?')[0]
   if path.split('?').length == 1
-    @mockservice.store_msg('GET', @path, message)
+    @mockservice.store_msg('GET', @path, message.to_s)
   else
     @mockservice.store_get_query(path)
   end
