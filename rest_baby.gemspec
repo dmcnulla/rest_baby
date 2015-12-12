@@ -11,7 +11,6 @@ Gem::Specification.new do |spec|
   spec.description   = 'Rest client'
   spec.summary       = 'Small rest client developed to testing rest services.'
   spec.homepage      = 'https://github.com/dmcnulla/rest_baby'
-  spec.metadata      = { 'ci' => 'https://travis-ci.org/dmcnulla/rest_baby' }
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
