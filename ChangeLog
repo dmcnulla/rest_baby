@@ -25,5 +25,13 @@
 * Fixed reference to nokogiri' (~> 0)
 * Fixed all cukes, no more @wip
 * Added rubocop style-checker/lint compliance
-=== Version 0.7 / 2014-02-10
-* Fix json pretty_print
+=== Version 0.7 / 2015-02-10
+* Tested debug fix of json printing
+=== Version 0.8 / 2015-02-10
+* Fixed json pretty_print
+=== Version 1.0 / 2015-12-12
+* Remove double output of Body=
+* Switch should to expect in cukes.
+* Revise gem list to support yardoc in dev mode
+* cleaned up rake file, added support for cleaning yardocs
+* Add support for travis-ci
