@@ -71,11 +71,11 @@ When(/^I pause$/) do
 end
 
 Then(/^I receive the expected message$/) do
-  @response.code.should eq('200')
+  expect(@response.code).to eq('200')
   expect(@response.body).to eq(DEFAULT_MSG)
 end
 
 Then(/^I receive a message with "([^"]*)"$/) do |message|
-  @response.code.should eq('200')
-  @response.body.should eq(message)
+  expect(@response.code).to eq('200')
+  expect(@response.body).to eq(message)
 end
