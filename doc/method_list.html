@@ -20,7 +20,11 @@
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -31,10 +35,6 @@
         
           <span><a target="_self" href="feature_list.html">
             Features
-          </a></span>
-        
-          <span><a target="_self" href="featuredirectories_list.html">
-            Features by Directory
           </a></span>
         
           <span><a target="_self" href="tag_list.html">
@@ -68,61 +68,73 @@
         
 
   <li class="r1 ">
-    <span class='object_link'><a href="PinchRestService.html#close-instance_method" title="PinchRestService#close (method)">#close</a></span>
-    <small>PinchRestService</small>
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="RestBaby/Client.html#delete-instance_method" title="RestBaby::Client#delete (method)">#delete</a></span>
-    <small>RestBaby::Client</small>
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="RestBaby/Client.html#get-instance_method" title="RestBaby::Client#get (method)">#get</a></span>
+    <span class='object_link'><a href="RestBaby/Client.html#add_headers-instance_method" title="RestBaby::Client#add_headers (method)">#add_headers</a></span>
     <small>RestBaby::Client</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="RestBaby/Client.html#get_code-instance_method" title="RestBaby::Client#get_code (method)">#get_code</a></span>
-    <small>RestBaby::Client</small>
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="RestBaby/Client.html#initialize-instance_method" title="RestBaby::Client#initialize (method)">#initialize</a></span>
-    <small>RestBaby::Client</small>
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="MockRestService.html#initialize-instance_method" title="MockRestService#initialize (method)">#initialize</a></span>
+    <span class='object_link'><a href="MockRestService.html#auth_string-instance_method" title="MockRestService#auth_string (method)">#auth_string</a></span>
     <small>MockRestService</small>
   </li>
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="PinchRestService.html#initialize-instance_method" title="PinchRestService#initialize (method)">#initialize</a></span>
-    <small>PinchRestService</small>
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="#pause-instance_method" title="#pause (method)">#pause</a></span>
-    <small>Top Level Namespace</small>
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="RestBaby/Client.html#post-instance_method" title="RestBaby::Client#post (method)">#post</a></span>
+    <span class='object_link'><a href="RestBaby/Client.html#code-instance_method" title="RestBaby::Client#code (method)">#code</a></span>
     <small>RestBaby::Client</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="RestBaby/Client.html#print_last_response-instance_method" title="RestBaby::Client#print_last_response (method)">#print_last_response</a></span>
+    <span class='object_link'><a href="top-level-namespace.html#create_get-instance_method" title="#create_get (method)">#create_get</a></span>
+    <small>Top Level Namespace</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="RestBaby/Client.html#delete-instance_method" title="RestBaby::Client#delete (method)">#delete</a></span>
+    <small>RestBaby::Client</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RestBaby/Client.html#get-instance_method" title="RestBaby::Client#get (method)">#get</a></span>
+    <small>RestBaby::Client</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="MockRestService.html#initialize-instance_method" title="MockRestService#initialize (method)">#initialize</a></span>
+    <small>MockRestService</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RestBaby/Client.html#initialize-instance_method" title="RestBaby::Client#initialize (method)">#initialize</a></span>
+    <small>RestBaby::Client</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="MockRestService.html#merge_headers-instance_method" title="MockRestService#merge_headers (method)">#merge_headers</a></span>
+    <small>MockRestService</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RestBaby/Client.html#password-instance_method" title="RestBaby::Client#password (method)">#password</a></span>
+    <small>RestBaby::Client</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="top-level-namespace.html#pause-instance_method" title="#pause (method)">#pause</a></span>
+    <small>Top Level Namespace</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RestBaby/Client.html#post-instance_method" title="RestBaby::Client#post (method)">#post</a></span>
     <small>RestBaby::Client</small>
   </li>
   
@@ -134,32 +146,32 @@
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="RestBaby/Client.html#request-instance_method" title="RestBaby::Client#request (method)">#request</a></span>
-    <small>RestBaby::Client</small>
-  </li>
-  
-
-  <li class="r1 ">
     <span class='object_link'><a href="RestBaby/Client.html#set_auth-instance_method" title="RestBaby::Client#set_auth (method)">#set_auth</a></span>
     <small>RestBaby::Client</small>
   </li>
   
 
-  <li class="r2 ">
-    <span class='object_link'><a href="RestBaby/Client.html#set_headers-instance_method" title="RestBaby::Client#set_headers (method)">#set_headers</a></span>
-    <small>RestBaby::Client</small>
-  </li>
-  
-
   <li class="r1 ">
-    <span class='object_link'><a href="MockRestService.html#store_msg-instance_method" title="MockRestService#store_msg (method)">#store_msg</a></span>
+    <span class='object_link'><a href="MockRestService.html#store_get_query-instance_method" title="MockRestService#store_get_query (method)">#store_get_query</a></span>
     <small>MockRestService</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="PinchRestService.html#store_msg-instance_method" title="PinchRestService#store_msg (method)">#store_msg</a></span>
-    <small>PinchRestService</small>
+    <span class='object_link'><a href="MockRestService.html#store_msg-instance_method" title="MockRestService#store_msg (method)">#store_msg</a></span>
+    <small>MockRestService</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="RestBaby/Client.html#user-instance_method" title="RestBaby::Client#user (method)">#user</a></span>
+    <small>RestBaby::Client</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RestBaby/Client.html#wsresponse-instance_method" title="RestBaby::Client#wsresponse (method)">#wsresponse</a></span>
+    <small>RestBaby::Client</small>
   </li>
   
 

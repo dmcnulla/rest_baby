@@ -20,7 +20,11 @@
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -31,10 +35,6 @@
         
           <span><a target="_self" href="feature_list.html">
             Features
-          </a></span>
-        
-          <span><a target="_self" href="featuredirectories_list.html">
-            Features by Directory
           </a></span>
         
           <span><a target="_self" href="tag_list.html">

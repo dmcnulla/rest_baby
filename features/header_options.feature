@@ -7,7 +7,7 @@ Scenario: client uses an Accept header for a GET
   And I have "GET" service for "/test" with the following headers
     | Accept | application/json |
   And I am a rest client
-  When I have the following header 
+  When I have the following header
     | Accept | application/json |
   And I "GET" from the web service
   Then I receive the expected message
@@ -19,10 +19,9 @@ Scenario: client uses an Accept and a Content-Type header for a POST
   And I have "POST" service for "/test" with the following headers
     | Content-Type    | application/json                        |
     | Accept          | application/json                        |
-    | Accept-Encoding | gzip;q=1.0,deflate;q=0.6,identity;q=0.3 |
     | User-Agent      | Ruby                                    |
   And I am a rest client
-  When I have the following header 
+  When I have the following header
     | Content-Type | application/json |
     | Accept | application/json |
   And I "POST" to the web service with the following

@@ -20,7 +20,11 @@
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -31,10 +35,6 @@
         
           <span><a target="_self" href="feature_list.html">
             Features
-          </a></span>
-        
-          <span><a target="_self" href="featuredirectories_list.html">
-            Features by Directory
           </a></span>
         
           <span><a target="_self" href="tag_list.html">
@@ -84,8 +84,10 @@
   <li class="r2">
   <span class='object_link'>
     <span class="pre">Given</span>
-      <a href="requirements/step_transformers.html#step_definition2-stepdefinition" title="/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot; with the following headers$/">
-        <span class="name">/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot; with the following headers$/</span>
+      <a href="requirements/step_transformers.html#step_definition2-stepdefinition" title="/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;([^&quot;]*)&quot; \
+with the following headers$/">
+        <span class="name">/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;([^&quot;]*)&quot; \
+with the following headers$/</span>
       </a>&nbsp;&nbsp;
   </span>
   <small>features/step_definitions/header_steps.rb:8</small>
@@ -94,133 +96,161 @@
 
   <li class="r1">
   <span class='object_link'>
+    <span class="pre">Given</span>
+      <a href="requirements/step_transformers.html#step_definition3-stepdefinition" title="/^I have &quot;(GET|DELETE)&quot; service for &quot;([^&quot;]*)&quot; for \
+user &quot;([^&quot;]*)&quot; and password &quot;([^&quot;]*)&quot;$/">
+        <span class="name">/^I have &quot;(GET|DELETE)&quot; service for &quot;([^&quot;]*)&quot; for \
+user &quot;([^&quot;]*)&quot; and password &quot;([^&quot;]*)&quot;$/</span>
+      </a>&nbsp;&nbsp;
+  </span>
+  <small>features/step_definitions/header_steps.rb:14</small>
+  </li>
+  
+
+  <li class="r2">
+  <span class='object_link'>
+    <span class="pre">Given</span>
+      <a href="requirements/step_transformers.html#step_definition4-stepdefinition" title="/^I have &quot;(PUT|POST)&quot; service for &quot;([^&quot;]*)&quot; for \
+user &quot;([^&quot;]*)&quot; and password &quot;([^&quot;]*)&quot;$/">
+        <span class="name">/^I have &quot;(PUT|POST)&quot; service for &quot;([^&quot;]*)&quot; for \
+user &quot;([^&quot;]*)&quot; and password &quot;([^&quot;]*)&quot;$/</span>
+      </a>&nbsp;&nbsp;
+  </span>
+  <small>features/step_definitions/header_steps.rb:20</small>
+  </li>
+  
+
+  <li class="r1">
+  <span class='object_link'>
     <span class="pre">When</span>
-      <a href="requirements/step_transformers.html#step_definition3-stepdefinition" title="/^I have the following headers?$/">
+      <a href="requirements/step_transformers.html#step_definition5-stepdefinition" title="/^I have the following headers?$/">
         <span class="name">/^I have the following headers?$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/header_steps.rb:13</small>
+  <small>features/step_definitions/header_steps.rb:27</small>
   </li>
   
 
   <li class="r2">
   <span class='object_link'>
     <span class="pre">Given</span>
-      <a href="requirements/step_transformers.html#step_definition4-stepdefinition" title="/^I have basic auth for user &quot;(.*?)&quot; and password &quot;(.*?)&quot;$/">
-        <span class="name">/^I have basic auth for user &quot;(.*?)&quot; and password &quot;(.*?)&quot;$/</span>
+      <a href="requirements/step_transformers.html#step_definition6-stepdefinition" title="/^I have basic auth for user &quot;([^&quot;]*)&quot; \
+and password &quot;(.*?)&quot;$/">
+        <span class="name">/^I have basic auth for user &quot;([^&quot;]*)&quot; \
+and password &quot;(.*?)&quot;$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/header_steps.rb:17</small>
+  <small>features/step_definitions/header_steps.rb:31</small>
   </li>
   
 
   <li class="r1">
   <span class='object_link'>
     <span class="pre">Given</span>
-      <a href="requirements/step_transformers.html#step_definition5-stepdefinition" title="/^I have a web service$/">
+      <a href="requirements/step_transformers.html#step_definition7-stepdefinition" title="/^I have a web service$/">
         <span class="name">/^I have a web service$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:3</small>
+  <small>features/step_definitions/rest_client_steps.rb:4</small>
   </li>
   
 
   <li class="r2">
   <span class='object_link'>
     <span class="pre">Given</span>
-      <a href="requirements/step_transformers.html#step_definition6-stepdefinition" title="/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot;$/">
-        <span class="name">/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot;$/</span>
+      <a href="requirements/step_transformers.html#step_definition8-stepdefinition" title="/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;([^&quot;]*)&quot;$/">
+        <span class="name">/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;([^&quot;]*)&quot;$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:10</small>
+  <small>features/step_definitions/rest_client_steps.rb:11</small>
   </li>
   
 
   <li class="r1">
   <span class='object_link'>
     <span class="pre">Given</span>
-      <a href="requirements/step_transformers.html#step_definition7-stepdefinition" title="/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot; as follows$/">
-        <span class="name">/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;(.*?)&quot; as follows$/</span>
+      <a href="requirements/step_transformers.html#step_definition9-stepdefinition" title="/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;([^&quot;]*)&quot; as follows$/">
+        <span class="name">/^I have &quot;(GET|PUT|POST|DELETE)&quot; service for &quot;([^&quot;]*)&quot; as follows$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:15</small>
+  <small>features/step_definitions/rest_client_steps.rb:22</small>
   </li>
   
 
   <li class="r2">
   <span class='object_link'>
     <span class="pre">Given</span>
-      <a href="requirements/step_transformers.html#step_definition8-stepdefinition" title="/^I am a rest client$/">
+      <a href="requirements/step_transformers.html#step_definition10-stepdefinition" title="/^I am a rest client$/">
         <span class="name">/^I am a rest client$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:20</small>
+  <small>features/step_definitions/rest_client_steps.rb:41</small>
   </li>
   
 
   <li class="r1">
   <span class='object_link'>
     <span class="pre">When</span>
-      <a href="requirements/step_transformers.html#step_definition9-stepdefinition" title="/^I &quot;(GET|DELETE)&quot; from the web service$/">
+      <a href="requirements/step_transformers.html#step_definition11-stepdefinition" title="/^I &quot;(GET|DELETE)&quot; from the web service$/">
         <span class="name">/^I &quot;(GET|DELETE)&quot; from the web service$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:24</small>
+  <small>features/step_definitions/rest_client_steps.rb:45</small>
   </li>
   
 
   <li class="r2">
   <span class='object_link'>
     <span class="pre">When</span>
-      <a href="requirements/step_transformers.html#step_definition10-stepdefinition" title="/^I &quot;(PUT|POST)&quot; to the web service with the following$/">
+      <a href="requirements/step_transformers.html#step_definition12-stepdefinition" title="/^I &quot;(PUT|POST)&quot; to the web service with the following$/">
         <span class="name">/^I &quot;(PUT|POST)&quot; to the web service with the following$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:34</small>
+  <small>features/step_definitions/rest_client_steps.rb:54</small>
   </li>
   
 
   <li class="r1">
   <span class='object_link'>
     <span class="pre">When</span>
-      <a href="requirements/step_transformers.html#step_definition11-stepdefinition" title="/^I pause$/">
-        <span class="name">/^I pause$/</span>
+      <a href="requirements/step_transformers.html#step_definition13-stepdefinition" title="/^I &quot;GET&quot; from the web service with the parameters$/">
+        <span class="name">/^I &quot;GET&quot; from the web service with the parameters$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:43</small>
+  <small>features/step_definitions/rest_client_steps.rb:65</small>
   </li>
   
 
   <li class="r2">
   <span class='object_link'>
-    <span class="pre">Then</span>
-      <a href="requirements/step_transformers.html#step_definition12-stepdefinition" title="/^I receive the expected message$/">
-        <span class="name">/^I receive the expected message$/</span>
+    <span class="pre">When</span>
+      <a href="requirements/step_transformers.html#step_definition14-stepdefinition" title="/^I pause$/">
+        <span class="name">/^I pause$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:47</small>
+  <small>features/step_definitions/rest_client_steps.rb:69</small>
   </li>
   
 
   <li class="r1">
   <span class='object_link'>
     <span class="pre">Then</span>
-      <a href="requirements/step_transformers.html#step_definition13-stepdefinition" title="/^I receive the following$/">
-        <span class="name">/^I receive the following$/</span>
+      <a href="requirements/step_transformers.html#step_definition15-stepdefinition" title="/^I receive the expected message$/">
+        <span class="name">/^I receive the expected message$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:52</small>
+  <small>features/step_definitions/rest_client_steps.rb:73</small>
   </li>
   
 
   <li class="r2">
   <span class='object_link'>
     <span class="pre">Then</span>
-      <a href="requirements/step_transformers.html#step_definition14-stepdefinition" title="/^the response prints like the following$/">
-        <span class="name">/^the response prints like the following$/</span>
+      <a href="requirements/step_transformers.html#step_definition16-stepdefinition" title="/^I receive a message with &quot;([^&quot;]*)&quot;$/">
+        <span class="name">/^I receive a message with &quot;([^&quot;]*)&quot;$/</span>
       </a>&nbsp;&nbsp;
   </span>
-  <small>features/step_definitions/rest_client_steps.rb:57</small>
+  <small>features/step_definitions/rest_client_steps.rb:78</small>
   </li>
   
 

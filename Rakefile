@@ -2,8 +2,16 @@ require 'bundler/gem_tasks'
 require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
-require 'yard'
-require 'yard/rake/yardoc_task'
+if ENV["JRUBY"] || RUBY_PLATFORM == "java"
+  # Skip the yard gems for jruby
+else
+  require 'yard'
+  # rake yard
+  YARD::Rake::YardocTask.new do |t|
+    t.files   = ['lib/**/*.rb', 'features/**/*.feature', 'features/**/*.rb']
+  end
+end
+
 
 Cucumber::Rake::Task.new(:features) do |t|
   t.profile = 'default'
@@ -11,7 +19,8 @@ end
 
 task default: :features
 
-YARD::Rake::YardocTask.new do |t|
-  t.files   = ['features/**/*.feature', 'features/**/*.rb']
-  t.options = ['--any', '--extra', '--opts'] # optional
+task :clean do
+  `rm -rf doc`
+  `rm -rf .yardoc`
+  `git checkout doc`
 end

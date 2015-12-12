@@ -137,7 +137,7 @@ module RestBaby
         ">  Headers:\n"\
         "#{header_text(request, '> ')}\n"\
         ">  BODY =\n"\
-        ">  BODY =\n#{body_text(request['Content-Type'], request.body)}"
+        "#{body_text(request['Content-Type'], request.body)}"
     end
 
     def print_response(response)
@@ -146,7 +146,8 @@ module RestBaby
          "< CODE = #{response.code}\n"\
          "< MESSAGE = #{response.message}\n"\
          "#{header_text(response, ' <')}\n"\
-         "< BODY =\n#{body_text(response['Content-Type'], response.body)}"
+         "< BODY =\n"\
+         "#{body_text(response['Content-Type'], response.body)}"
     end
 
     def header_text(message, pointer)
