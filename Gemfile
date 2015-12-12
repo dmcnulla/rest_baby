@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'json'
 gem 'nokogiri'
 
-group :development, optional: true do
+group :development do
   gem 'bundler'
   gem 'rake'
   gem 'cucumber'
