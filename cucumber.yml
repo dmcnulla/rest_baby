@@ -1,4 +1,4 @@
-default: FIG_NEWTON_FILE=mock.yml DEBUG_HTTP=false --tags ~@wip --no-source --color --format pretty
+default: FIG_NEWTON_FILE=mock.yml DEBUG_HTTP=true --tags ~@wip --no-source --color --format pretty
 debug: FIG_NEWTON_FILE=mock.yml DEBUG_HTTP=true --no-source --color --format pretty
 report: FIG_NEWTON_FILE=mock.yml DEBUG_HTTP=false  --no-source --color --format progress --format html --out='features_<%= Time.new.strftime('%Y-%m-%d_%H_%M_%S') %>.html'
 wip: FIG_NEWTON_FILE=mock.yml DEBUG_HTTP=true --tags @wip --color --format pretty
