@@ -2,6 +2,8 @@ require 'bundler/gem_tasks'
 require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
+require 'coveralls/rake/task'
+
 if ENV['JRUBY'] || RUBY_PLATFORM == 'java'
   # Skip the yard gems for jruby
 else
@@ -16,7 +18,10 @@ Cucumber::Rake::Task.new(:features) do |t|
   t.profile = 'default'
 end
 
-task default: :features
+Coveralls::RakeTask.new
+
+task default: [:features, 'coveralls:push']
+# task default: :features
 
 task :clean do
   `rm -rf doc`

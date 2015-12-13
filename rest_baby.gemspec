@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'yard', '~> 0.8', '>= 0.8.7.6'
   spec.add_development_dependency 'yard-cucumber', '~> 2.3', '>= 2.3.2'
   spec.add_development_dependency 'redcarpet', '~> 3.3', '>= 3.3.0'
+  spec.add_development_dependency 'coveralls', '~> 0.7'
 end
