@@ -21,7 +21,6 @@ end
 Coveralls::RakeTask.new
 
 task default: [:features, 'coveralls:push']
-# task default: :features
 
 task :clean do
   `rm -rf doc`

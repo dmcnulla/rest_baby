@@ -10,7 +10,8 @@ group :development do
   gem 'fig_newton'
   gem 'rspec'
   gem 'webmock'
-  gem 'coveralls', require: false
+  gem 'coveralls'
+  gem 'simplecov'
   gem 'rubocop'
   if ENV['JRUBY'] || RUBY_PLATFORM == 'java'
     # Skip the yard gems for jruby
