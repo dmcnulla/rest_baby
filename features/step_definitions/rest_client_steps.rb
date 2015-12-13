@@ -1,5 +1,10 @@
 DEFAULT_MSG = '{"Answer": "What did you expect?"}'
 DEFAULT_RESPONSE = '{"Question": "What is the meaning of life?"}'
+DEFAULT_XML = '<Questions><Question>What is the meaning of life?</Question></Questions>'
+XML_HEADERS = {
+  'Content-Type' => 'application/xml',
+  'Accept' => 'application/xml'
+}
 
 Given(/^I have a web service$/) do
   @protocol = 'http'
@@ -17,6 +22,12 @@ Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*)"$/) do |type, path|
     @mockservice.store_msg(type, path, DEFAULT_MSG,
                            {}, nil, nil, DEFAULT_RESPONSE)
   end
+end
+
+Given(/^I have an xml service for "([^"]*)"$/) do |path|
+  @path = path
+  @mockservice.store_msg('POST', path, DEFAULT_XML,
+                         XML_HEADERS, nil, nil, DEFAULT_XML)
 end
 
 Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*)" as follows$/) \
@@ -51,6 +62,16 @@ When(/^I "(GET|DELETE)" from the web service$/) do |type|
   end
 end
 
+When(/^I "(.*?)" to the web service with the following xml$/) do |type, message|
+  @message = message.strip
+  case type.downcase
+  when 'put'
+    @response = @restbaby.put(@message, XML_HEADERS)
+  when 'post'
+    @response = @restbaby.post(@message, XML_HEADERS)
+  end
+end
+
 When(/^I "(PUT|POST)" to the web service with the following$/) \
 do |type, message|
   @message = message.strip
@@ -78,4 +99,9 @@ end
 Then(/^I receive a message with "([^"]*)"$/) do |message|
   expect(@response.code).to eq('200')
   expect(@response.body).to eq(message)
+end
+
+Then(/^I receive the xml message$/) do
+  expect(@response.code).to eq('200')
+  expect(@response.body).to eq(DEFAULT_XML)
 end
