@@ -14,7 +14,12 @@ end
 Given(/^I have "(GET|DELETE)" service for "([^"]*)" for \
 user "([^"]*)" and password "([^"]*)"$/) do |type, path, user, password|
   @path = path
-  @mockservice.store_msg(type, path, DEFAULT_MSG, {}, user, password)
+  message = hasParams(path) ? path.split('?')[1] : DEFAULT_MSG
+  @mockservice.store_msg(type, path, message, {}, user, password)
+end
+
+def hasParams(path)
+  path.include?('?')
 end
 
 Given(/^I have "(PUT|POST)" service for "([^"]*)" for \
