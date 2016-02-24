@@ -47,3 +47,7 @@
 * Revise gem list to support yardoc in dev mode
 * cleaned up rake file, added support for cleaning yardocs
 * Add support for travis-ci
+=== Version 1.5 / 2015-12-12
+* Add code coverage
+* Created scenario for combination of authentication & url parameters
+* Fixed Simple Cov formatter issue
