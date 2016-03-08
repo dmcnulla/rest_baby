@@ -8,6 +8,9 @@ Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9
 ## Coverage
 [![Coverage Status](https://coveralls.io/repos/dmcnulla/rest_baby/badge.svg?branch=v1_5&service=github)](https://coveralls.io/github/dmcnulla/rest_baby?branch=v1_5)
 
+## Code Analysis
+[![Code Climate](https://codeclimate.com/github/dmcnulla/rest_baby/badges/gpa.svg)](https://codeclimate.com/github/dmcnulla/rest_baby)
+
 ## Installation
 
 Add this line to your application's Gemfile:
