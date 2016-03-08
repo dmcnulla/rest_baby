@@ -2,6 +2,9 @@
 
 Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9). You can only updated docs in ruby, not jruby.
 
+## Gem
+[![Gem Version](https://badge.fury.io/rb/rest_baby.svg)](https://badge.fury.io/rb/rest_baby )
+
 ## Status
 [![Build Status](https://travis-ci.org/dmcnulla/rest_baby.svg?branch=master)](https://travis-ci.org/dmcnulla/rest_baby)
 
