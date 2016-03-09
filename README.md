@@ -11,6 +11,10 @@ Coverage | [![Coverage Status](https://coveralls.io/repos/dmcnulla/rest_baby/bad
 Code Analysis | [![Code Climate](https://codeclimate.com/github/dmcnulla/rest_baby/badges/gpa.svg)](https://codeclimate.com/github/dmcnulla/rest_baby)
 Docs | [![Inline docs](http://inch-ci.org/github/dmcnulla/rest_baby.svg?branch=master)](http://inch-ci.org/github/dmcnulla/rest_baby)
 
+## Purpose
+
+Rest_baby is a rest client that retains key server & authorization settings, keeping your code dryer. It has been used for automated tools that test restful interfaces. It has grown to over 5k downloads with only 5 reported issues as of this writing.
+
 ## Installation
 
 Add this line to your application's Gemfile:
