@@ -5,9 +5,12 @@ Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9
 Item | Status
 --- | ---
 Gem | [![Gem Version](https://badge.fury.io/rb/rest_baby.svg)](https://badge.fury.io/rb/rest_baby )
+Dependencies | 
+[![Dependency Status](https://gemnasium.com/dmcnulla/rest_baby.svg)](https://gemnasium.com/dmcnulla/rest_baby)
 Build | [![Build Status](https://travis-ci.org/dmcnulla/rest_baby.svg?branch=master)](https://travis-ci.org/dmcnulla/rest_baby)
 Coverage | [![Coverage Status](https://coveralls.io/repos/dmcnulla/rest_baby/badge.svg?branch=v1_5&service=github)](https://coveralls.io/github/dmcnulla/rest_baby?branch=v1_5)
 Code Analysis | [![Code Climate](https://codeclimate.com/github/dmcnulla/rest_baby/badges/gpa.svg)](https://codeclimate.com/github/dmcnulla/rest_baby)
+Docs | [![Inline docs](http://inch-ci.org/github/dmcnulla/rest_baby.svg?branch=master)](http://inch-ci.org/github/dmcnulla/rest_baby)
 
 ## Installation
 
