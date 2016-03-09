@@ -34,6 +34,7 @@ client = RestBaby::Client.new('http://gis.srh.noaa.gov/arcgis/rest/services/Syst
 message = JSON.parse(client.get( { 'Accept' => 'application/json' }, '/ReportingTools/GPServer/info/iteminfo', {'f' => 'pjson'}).body)
 
 client = RestBaby::Client.new('http://127.0.0.1:9001')
+# post(BODY, HEADERS, PATH)
 message = JSON.parse(client.post('{ "name": "Ben Franklin" }', { 'Content-Type' => 'application/json' }, '/person').body)
 # or 
 message = JSON.parse(client.post({ "name" => "Ben Franklin" }.to_json, { 'Content-Type' => 'application/json' }, '/person').body)
