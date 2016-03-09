@@ -11,6 +11,10 @@ Coverage | [![Coverage Status](https://coveralls.io/repos/dmcnulla/rest_baby/bad
 Code Analysis | [![Code Climate](https://codeclimate.com/github/dmcnulla/rest_baby/badges/gpa.svg)](https://codeclimate.com/github/dmcnulla/rest_baby)
 Docs | [![Inline docs](http://inch-ci.org/github/dmcnulla/rest_baby.svg?branch=master)](http://inch-ci.org/github/dmcnulla/rest_baby)
 
+## Purpose
+
+Rest_baby is a rest client that retains key server & authorization settings, keeping your code dryer. It has been used for automated tools that test restful interfaces. It has grown to over 5k downloads with only 5 reported issues as of this writing.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -24,6 +28,27 @@ And then execute:
 Or install it yourself as:
 
 	$ gem install rest_baby
+
+## Use
+
+```ruby
+client = RestBaby::Client.new('http://gis.srh.noaa.gov/arcgis/rest/services/System')
+# get(HEADERS, PATH, PARAMETERS)
+# returns http response, usually the body is what is wanted.
+message = JSON.parse(client.get( { 'Accept' => 'application/json' }, 
+                                   '/ReportingTools/GPServer/info/iteminfo', 
+                                   {'f' => 'pjson'}).body)
+
+client = RestBaby::Client.new('http://127.0.0.1:9001')
+# post(BODY, HEADERS, PATH)
+message = JSON.parse(client.post('{ "name": "Ben Franklin" }', 
+                                { 'Content-Type' => 'application/json' }, 
+                                '/person').body)
+# or 
+message = JSON.parse(client.post({ "name" => "Ben Franklin" }.to_json, 
+                                 { 'Content-Type' => 'application/json' }, 
+                                 '/person').body)
+```
 
 ## Contributing
 
