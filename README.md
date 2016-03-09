@@ -25,6 +25,20 @@ Or install it yourself as:
 
 	$ gem install rest_baby
 
+## Use
+
+```ruby
+client = RestBaby::Client.new('http://gis.srh.noaa.gov/arcgis/rest/services/System')
+# get(HEADERS, PATH, PARAMETERS)
+# returns http response, usually the body is what is wanted.
+message = JSON.parse(client.get( { 'Accept' => 'application/json' }, '/ReportingTools/GPServer/info/iteminfo', {'f' => 'pjson'}).body)
+
+client = RestBaby::Client.new('http://127.0.0.1:9001')
+message = JSON.parse(client.post('{ "name": "Ben Franklin" }', { 'Content-Type' => 'application/json' }, '/person').body)
+# or 
+message = JSON.parse(client.post({ "name" => "Ben Franklin" }.to_json, { 'Content-Type' => 'application/json' }, '/person').body)
+```
+
 ## Contributing
 
 1. Fork it
