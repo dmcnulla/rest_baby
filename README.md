@@ -10,6 +10,7 @@ Build | [![Build Status](https://travis-ci.org/dmcnulla/rest_baby.svg?branch=mas
 Coverage | [![Coverage Status](https://coveralls.io/repos/dmcnulla/rest_baby/badge.svg?branch=v1_5&service=github)](https://coveralls.io/github/dmcnulla/rest_baby?branch=v1_5)
 Code Analysis | [![Code Climate](https://codeclimate.com/github/dmcnulla/rest_baby/badges/gpa.svg)](https://codeclimate.com/github/dmcnulla/rest_baby)
 Docs | [![Inline docs](http://inch-ci.org/github/dmcnulla/rest_baby.svg?branch=master)](http://inch-ci.org/github/dmcnulla/rest_baby)
+License | [![License](https://img.shields.io/github/license/RubyMoney/money.svg)](http://opensource.org/licenses/MIT)
 
 ## Purpose
 
