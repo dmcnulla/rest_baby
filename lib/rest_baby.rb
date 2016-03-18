@@ -11,12 +11,12 @@ require 'rest_baby/version'
 
 # RestBaby is a small rest client. It encapsulates some of the details for
 # creating and using the rest service.
-# @private 
+# @private
 module RestBaby
   # Sends and receives data to a restful web service
   class Client
-    PARAM_STARTER = '?'
-    PARAM_SEPARATOR = '&'
+    PARAM_STARTER = '?'.freeze
+    PARAM_SEPARATOR = '&'.freeze
 
     # The WebService Response from the last call
     attr_reader :wsresponse
