@@ -6,7 +6,7 @@ require 'coveralls/rake/task'
 require 'reek/rake/task'
 require 'rubocop/rake_task'
 
-desc 'Run lint checks'
+desc 'Run lint check RuboCop'
 task :rubocop do
   RuboCop::RakeTask.new do |t|
     t.formatters = %w(files offenses)
@@ -15,13 +15,18 @@ task :rubocop do
   end
 end
 
-Reek::Rake::Task.new(:lint) do |t|
-  t.name          = 'reek'
-  t.config_file   = 'config/config.reek'
-  t.source_files  = 'lib/**/*.rb'
-  t.reek_opts     = '-U'
-  t.fail_on_error = true
-  t.verbose       = true
+desc 'Run lint check Reek'
+if ENV['JRUBY'] || RUBY_PLATFORM == 'java'
+  # skip, do nothing
+else
+  Reek::Rake::Task.new(:lint) do |t|
+    t.name          = 'reek'
+    t.config_file   = 'config/config.reek'
+    t.source_files  = 'lib/**/*.rb'
+    t.reek_opts     = '-U'
+    t.fail_on_error = true
+    t.verbose       = true
+  end
 end
 
 desc 'Documentation'

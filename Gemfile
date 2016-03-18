@@ -6,7 +6,6 @@ gem 'nokogiri'
 group :development do
   gem 'bundler'
   gem 'rake'
-  gem 'reek'
   gem 'cucumber'
   gem 'fig_newton'
   gem 'rspec'
@@ -17,6 +16,7 @@ group :development do
   if ENV['JRUBY'] || RUBY_PLATFORM == 'java'
     # Skip the yard gems for jruby
   else
+    gem 'reek'
     gem 'yard'
     gem 'yard-cucumber'
     gem 'redcarpet'
