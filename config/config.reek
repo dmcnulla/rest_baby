@@ -3,3 +3,25 @@ exclude_paths:
   - doc
   - features
   - pkg
+UtilityFunction:
+  exclude:
+  - RestBaby::Client#header_text
+  - RestBaby::Client#pretty_xml
+ControlParameter:
+  exclude:
+  - RestBaby::Client#body_text
+DuplicateMethodCall:
+  exclude:
+  - RestBaby::Client#print_request
+DataClump:
+  exclude:
+  - RestBaby::Client
+FeatureEnvy:
+  exclude:
+  - RestBaby::Client#print_request
+TooManyInstanceVariables:
+  exclude:
+  - RestBaby::Client
+TooManyStatements:
+  exclude:
+  - RestBaby::Client#send_request

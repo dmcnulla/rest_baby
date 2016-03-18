@@ -4,8 +4,18 @@ require 'cucumber'
 require 'cucumber/rake/task'
 require 'coveralls/rake/task'
 require 'reek/rake/task'
+require 'rubocop/rake_task'
 
-Reek::Rake::Task.new do |t|
+desc 'Run lint checks'
+task :rubocop do
+  RuboCop::RakeTask.new do |t|
+    t.formatters = %w(files offenses)
+    t.options = [['--config', 'config/rubocop.yml']]
+    t.fail_on_error = true
+  end
+end
+
+Reek::Rake::Task.new(:lint) do |t|
   t.name          = 'reek'
   t.config_file   = 'config/config.reek'
   t.source_files  = 'lib/**/*.rb'
@@ -14,6 +24,7 @@ Reek::Rake::Task.new do |t|
   t.verbose       = true
 end
 
+desc 'Documentation'
 if ENV['JRUBY'] || RUBY_PLATFORM == 'java'
   # Skip the yard gems for jruby
 else
@@ -24,13 +35,15 @@ else
   end
 end
 
+desc 'Test'
 Cucumber::Rake::Task.new(:features) do |t|
   t.profile = 'default'
 end
 
+desc 'Check test coverage'
 Coveralls::RakeTask.new
 
-task default: [:features, 'coveralls:push']
+task default: [:features, 'coveralls:push', :rubocop, :reek]
 
 task :clean do
   `rm -rf doc`
