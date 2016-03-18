@@ -3,6 +3,16 @@ require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
 require 'coveralls/rake/task'
+require 'reek/rake/task'
+
+Reek::Rake::Task.new do |t|
+  t.name          = 'reek'
+  t.config_file   = 'config/config.reek'
+  t.source_files  = 'lib/**/*.rb'
+  t.reek_opts     = '-U'
+  t.fail_on_error = true
+  t.verbose       = true
+end
 
 if ENV['JRUBY'] || RUBY_PLATFORM == 'java'
   # Skip the yard gems for jruby

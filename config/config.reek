@@ -1,0 +1,5 @@
+exclude_paths:
+  - coverage
+  - doc
+  - features
+  - pkg

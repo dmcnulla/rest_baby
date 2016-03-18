@@ -6,6 +6,7 @@ gem 'nokogiri'
 group :development do
   gem 'bundler'
   gem 'rake'
+  gem 'reek'
   gem 'cucumber'
   gem 'fig_newton'
   gem 'rspec'
