@@ -24,6 +24,13 @@ Given(/^I have "(GET|PUT|POST|DELETE)" service for "([^"]*)"$/) do |type, path|
   end
 end
 
+Given(/^I have "(PUT|POST)" service for "([^"]*)" that requires no body$/) do |type, path|
+  @path = path
+  @path = path
+  @mockservice.store_msg(type, path, nil,
+                         {}, nil, nil, nil)
+end
+
 Given(/^I have an xml service for "([^"]*)"$/) do |path|
   @path = path
   @mockservice.store_msg('POST', path, DEFAULT_XML,
@@ -83,6 +90,15 @@ do |type, message|
   end
 end
 
+When(/^I "(PUT|POST)" to the web service with no body$/) do |type|
+  case type.downcase
+  when 'put'
+    @response = @restbaby.put()
+  when 'post'
+    @response = @restbaby.post()
+  end
+end
+
 When(/^I "GET" from the web service with the parameters$/) do |table|
   @response = @restbaby.get({}, nil, table.rows_hash)
 end
@@ -105,3 +121,9 @@ Then(/^I receive the xml message$/) do
   expect(@response.code).to eq('200')
   expect(@response.body).to eq(DEFAULT_XML)
 end
+
+Then(/^I receive the no message$/) do
+  expect(@response.code).to eq('200')
+  expect(@response.body).to be_nil
+end
+

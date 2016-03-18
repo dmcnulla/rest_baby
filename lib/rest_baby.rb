@@ -11,7 +11,7 @@ require 'rest_baby/version'
 
 # RestBaby is a small rest client. It encapsulates some of the details for
 # creating and using the rest service.
-# @private
+# @private 
 module RestBaby
   # Sends and receives data to a restful web service
   class Client
@@ -84,7 +84,7 @@ module RestBaby
     def post(body = nil, headers = {}, path = '')
       uri = URI.parse("#{@url}#{path}")
       request = Net::HTTP::Post.new(uri.request_uri)
-      request.body = body unless body.nil?
+      request.body = body
       send_request(uri, request, headers)
     end
 
@@ -112,7 +112,7 @@ module RestBaby
     def put(body = nil, headers = {}, path = '')
       uri = URI.parse("#{@url}#{path}")
       request = Net::HTTP::Put.new(uri.request_uri)
-      request.body = body unless body.nil?
+      request.body = body
       send_request(uri, request, headers)
     end
 
@@ -120,7 +120,7 @@ module RestBaby
 
     def send_request(uri, request, headers)
       @headers.merge(headers).each { |key, value| request[key] = value }
-      request.basic_auth(@user, @password) unless @user.nil?
+      request.basic_auth(@user, @password)
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true if uri.scheme == 'https'
       print_request(request, uri)
@@ -157,7 +157,7 @@ module RestBaby
     end
 
     def body_text(type, response_body)
-      return '[Empty]' if response_body.nil?
+      response_body ||= '[Empty]'
       case type
       when 'application/json'
         pretty_json(response_body)
