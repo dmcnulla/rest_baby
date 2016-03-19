@@ -9,7 +9,7 @@ desc 'Run lint check RuboCop'
 task :rubocop do
   RuboCop::RakeTask.new do |t|
     t.formatters = %w(files offenses)
-    t.options = [['--config', 'config/rubocop.yml']]
+    t.options = [['--config', '.rubocop.yml']]
     t.fail_on_error = true
   end
 end
