@@ -20,4 +20,8 @@ group :development do
     gem 'yard-cucumber'
     gem 'redcarpet'
   end
+
+  if RUBY_VERSION[0].to_i > 1
+    gem 'reek'
+  end
 end
