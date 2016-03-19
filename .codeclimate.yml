@@ -1,8 +1,41 @@
 engines:
   rubocop:
     enabled: true
+    # Configuration parameters: AllowURI, URISchemes.
+    Metrics/LineLength:
+      Max: 81
+
+    # Configuration parameters: CountComments.
+    Metrics/MethodLength:
+      Max: 14
+
+    # Configuration parameters: CountKeywordArgs.
+    Metrics/ParameterLists:
+      Max: 6
   reek:
     enabled: true
+    UtilityFunction:
+      exclude:
+      - RestBaby::Client#header_text
+      - RestBaby::Client#pretty_xml
+    ControlParameter:
+      exclude:
+      - RestBaby::Client#body_text
+    DuplicateMethodCall:
+      exclude:
+      - RestBaby::Client#print_request
+    DataClump:
+      exclude:
+      - RestBaby::Client
+    FeatureEnvy:
+      exclude:
+      - RestBaby::Client#print_request
+    TooManyInstanceVariables:
+      exclude:
+      - RestBaby::Client
+    TooManyStatements:
+      exclude:
+      - RestBaby::Client#send_request
 ratings:
   paths:
   - lib/**
@@ -10,3 +43,4 @@ ratings:
 exclude_paths:
   - doc/**/*
   - features/**/*
+  
