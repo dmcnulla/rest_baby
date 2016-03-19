@@ -28,10 +28,12 @@ task :clean do
   `git checkout doc`
 end
 
-if ENV['JRUBY'] || RUBY_PLATFORM == 'java'
-  # jruby default rake task
+if ENV['JRUBY'] || RUBY_PLATFORM == 'java' || RUBY_VERSION[0].to_i < 2
+  # jruby-1.7 default rake task
   task default: [:features, 'coveralls:push', :rubocop]
-else
+elsif RUBY_VERSION[0].to_i > 1
+  # jruby-9 or higher
+
   desc 'Run lint check Reek'
   require 'reek/rake/task'
   Reek::Rake::Task.new(:lint) do |t|
@@ -43,6 +45,8 @@ else
     t.verbose       = true
   end
 
+  task default: [:features, 'coveralls:push', :rubocop, :reek]
+else
   desc 'Documentation'
   require 'yard'
   YARD::Rake::YardocTask.new do |t|
