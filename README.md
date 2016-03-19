@@ -1,6 +1,6 @@
 # rest_baby
 
-Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9), and jruby-9. You can only updated docs in ruby, not jruby.
+Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9). You can only updated docs in ruby, not jruby.
 
 Item | Status
 --- | ---
