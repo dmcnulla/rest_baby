@@ -5,6 +5,8 @@ require 'cucumber/rake/task'
 require 'coveralls/rake/task'
 require 'rubocop/rake_task'
 
+version = RUBY_VERSION[0].split('.')[0..1].join('.').to_f
+
 desc 'Run lint check RuboCop'
 task :rubocop do
   RuboCop::RakeTask.new do |t|
@@ -28,12 +30,10 @@ task :clean do
   `git checkout doc`
 end
 
-if ENV['JRUBY'] || RUBY_PLATFORM == 'java' || RUBY_VERSION[0].to_i < 2
-  # jruby-1.7 default rake task
+if ENV['JRUBY'] || RUBY_PLATFORM == 'java' || version < 2.1
   task default: [:features, 'coveralls:push', :rubocop]
-elsif RUBY_VERSION[0].to_i > 1
-  # jruby-9 or higher
 
+elsif version > 2.0
   desc 'Run lint check Reek'
   require 'reek/rake/task'
   Reek::Rake::Task.new(:lint) do |t|
