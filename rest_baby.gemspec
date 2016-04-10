@@ -6,6 +6,7 @@ require 'rest_baby/version'
 Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 1.9.3'
   spec.required_rubygems_version = '>= 1.6.0'
+
   spec.name          = 'rest_baby'
   spec.version       = RestBaby::VERSION
   spec.authors       = ['Dave McNulla']
@@ -16,8 +17,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
-  spec.executables   = spec.files.grep(/^bin/) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(/^(test|spec|features)/)
+  spec.test_files    = spec.files.grep(/^(features)/)
   spec.require_paths = ['lib']
 
   spec.add_dependency 'nokogiri', '~> 1.6'
