@@ -5,7 +5,7 @@ require 'cucumber/rake/task'
 require 'coveralls/rake/task'
 require 'rubocop/rake_task'
 
-version = RUBY_VERSION[0].split('.')[0..1].join('.').to_f
+version = RUBY_VERSION[0..2].split('.')[0..1].join('.').to_f
 
 desc 'Run lint check RuboCop'
 task :rubocop do
