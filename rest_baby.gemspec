@@ -5,7 +5,7 @@ require 'rest_baby/version'
 
 Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 1.9.3'
-  s.required_rubygems_version = '>= 1.6.0'
+  spec.required_rubygems_version = '>= 1.6.0'
   spec.name          = 'rest_baby'
   spec.version       = RestBaby::VERSION
   spec.authors       = ['Dave McNulla']
