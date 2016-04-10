@@ -1,6 +1,6 @@
 # rest_baby
 
-Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9). You can only updated docs in ruby, not jruby.
+Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9), and rbx-2. You can only updated docs in ruby, not jruby.
 
 Item | Status
 --- | ---
@@ -35,18 +35,18 @@ Or install it yourself as:
 client = RestBaby::Client.new('http://gis.srh.noaa.gov/arcgis/rest/services/System')
 # get(HEADERS, PATH, PARAMETERS)
 # returns http response, usually the body is what is wanted.
-message = JSON.parse(client.get( { 'Accept' => 'application/json' }, 
-                                   '/ReportingTools/GPServer/info/iteminfo', 
+message = JSON.parse(client.get( { 'Accept' => 'application/json' },
+                                   '/ReportingTools/GPServer/info/iteminfo',
                                    {'f' => 'pjson'}).body)
 
 client = RestBaby::Client.new('http://127.0.0.1:9001')
 # post(BODY, HEADERS, PATH)
-message = JSON.parse(client.post('{ "name": "Ben Franklin" }', 
-                                { 'Content-Type' => 'application/json' }, 
+message = JSON.parse(client.post('{ "name": "Ben Franklin" }',
+                                { 'Content-Type' => 'application/json' },
                                 '/person').body)
-# or 
-message = JSON.parse(client.post({ "name" => "Ben Franklin" }.to_json, 
-                                 { 'Content-Type' => 'application/json' }, 
+# or
+message = JSON.parse(client.post({ "name" => "Ben Franklin" }.to_json,
+                                 { 'Content-Type' => 'application/json' },
                                  '/person').body)
 ```
 
