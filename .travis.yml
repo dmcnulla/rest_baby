@@ -10,8 +10,11 @@ matrix:
       jdk: oraclejdk8
     - rvm: jruby-19mode
       jdk: openjdk6
+    - rvm: jruby-19mode
       jdk: openjdk7
+    - rvm: jruby-19mode
       jdk: oraclejdk7
+    - rvm: jruby-19mode
       jdk: oraclejdk8
   allow_failures:
     - rvm: ruby-head
