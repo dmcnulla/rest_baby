@@ -5,6 +5,9 @@ matrix:
     - rvm: 2.1.0
     - rvm: 2.2.0
     - rvm: rbx-2
+    - rvm: ruby-head
+    - rvm: jruby-head
+      jdk: oraclejdk8
     - rvm: jruby-19mode
       jdk: openjdk6
       jdk: openjdk7
