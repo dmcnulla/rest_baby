@@ -5,6 +5,7 @@ AllCops:
     - 'bin/**/*'
   Exclude:
     - 'features/**/*'
+    - 'doc/**/*'
 
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
