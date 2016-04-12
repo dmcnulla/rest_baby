@@ -8,11 +8,11 @@ AllCops:
 
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
-  Max: 81
+  Max: 80
 
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
-  Max: 14
+  Max: 15
 
 # Configuration parameters: CountKeywordArgs.
 Metrics/ParameterLists:
