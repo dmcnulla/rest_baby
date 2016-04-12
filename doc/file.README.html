@@ -87,7 +87,43 @@
 
     <div id="content"><div id='filecontents'><h1>rest_baby</h1>
 
-<p>Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9). You can only updated docs in ruby, not jruby.</p>
+<p>Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9, tested with OpenJDK6, OpenJDK7, OracleJDK7, and OracleJDK8), plus rbx-2. You can only update docs in ruby, not jruby. You can only run reek with ruby 2.1 or above.</p>
+
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Gem</td>
+<td><a href="https://badge.fury.io/rb/rest_baby"><img src="https://badge.fury.io/rb/rest_baby.svg" alt="Gem Version"></a></td>
+</tr>
+<tr>
+<td>Dependencies</td>
+<td><a href="https://gemnasium.com/dmcnulla/rest_baby"><img src="https://gemnasium.com/dmcnulla/rest_baby.svg" alt="Dependency Status"></a></td>
+</tr>
+<tr>
+<td>Build/Test</td>
+<td><a href="https://travis-ci.org/dmcnulla/rest_baby"><img src="https://travis-ci.org/dmcnulla/rest_baby.svg?branch=master" alt="Build Status"></a></td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td><a href="https://coveralls.io/github/dmcnulla/rest_baby?branch=v1_5"><img src="https://coveralls.io/repos/dmcnulla/rest_baby/badge.svg?branch=v1_5&amp;service=github" alt="Coverage Status"></a></td>
+</tr>
+<tr>
+<td>Code Analysis</td>
+<td><a href="https://codeclimate.com/github/dmcnulla/rest_baby"><img src="https://codeclimate.com/github/dmcnulla/rest_baby/badges/gpa.svg" alt="Code Climate"></a></td>
+</tr>
+<tr>
+<td>Docs</td>
+<td><a href="http://inch-ci.org/github/dmcnulla/rest_baby"><img src="http://inch-ci.org/github/dmcnulla/rest_baby.svg?branch=master" alt="Inline docs"></a></td>
+</tr>
+</tbody></table>
+
+<h2>Purpose</h2>
+
+<p>Rest_baby is a rest client that retains key server &amp; authorization settings, keeping your code dryer. It has been used for automated tools that test restful interfaces. It has grown to over 5k downloads with only 5 reported issues as of this writing.</p>
 
 <h2>Installation</h2>
 
@@ -106,6 +142,26 @@
 <pre class="code ruby"><code class="ruby">$ gem install rest_baby
 </code></pre>
 
+<h2>Use</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>RestBaby</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http://gis.srh.noaa.gov/arcgis/rest/services/System</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='comment'># get(HEADERS, PATH, PARAMETERS)
+</span><span class='comment'># returns http response, usually the body is what is wanted.
+</span><span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Accept</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>application/json</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+                                   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ReportingTools/GPServer/info/iteminfo</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+                                   <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>f</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pjson</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>RestBaby</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http://127.0.0.1:9001</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='comment'># post(BODY, HEADERS, PATH)
+</span><span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{ &quot;name&quot;: &quot;Ben Franklin&quot; }</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+                                <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Content-Type</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>application/json</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+                                <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/person</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+<span class='comment'># or
+</span><span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ben Franklin</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='comma'>,</span>
+                                 <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Content-Type</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>application/json</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span>
+                                 <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/person</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+</code></pre>
+
 <h2>Contributing</h2>
 
 <ol>
@@ -118,9 +174,9 @@
 </div></div>
 
     <div id="footer">
-  Generated on Sat Dec 12 12:35:49 2015 by
+  Generated on Mon Apr 11 21:14:39 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.2.0).
 </div>
 
   </body>
