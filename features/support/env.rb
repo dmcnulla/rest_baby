@@ -9,10 +9,14 @@ require 'simplecov'
 puts "Using environment in #{ENV['FIG_NEWTON_FILE']}"
 FigNewton.load(ENV['FIG_NEWTON_FILE'])
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+COVERAGE_ARRAY = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
-])
+].freeze
+
+SimpleCov.formatter =
+  SimpleCov::Formatter::MultiFormatter.new(COVERAGE_ARRAY)
+
 SimpleCov.start do
   add_filter 'features'
 end
