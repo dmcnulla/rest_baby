@@ -7,14 +7,16 @@ require 'rubocop/rake_task'
 
 desc 'Run lint check RuboCop'
 task :rubocop do
-  begin
-    RuboCop::RakeTask.new do |t|
-      t.formatters = %w(files offenses)
-      t.options = [['--config', '.rubocop.yml']]
-      t.fail_on_error = true
+  if not(ENV['RUBOCOP']=='false')
+    begin
+      RuboCop::RakeTask.new do |t|
+        t.formatters = %w(files offenses)
+        t.options = [['--config', '.rubocop.yml']]
+        t.fail_on_error = true
+      end
+    rescue
+      puts 'Rubocop did not run'
     end
-  rescue
-    puts 'Rubocop did not run'
   end
 end
 
