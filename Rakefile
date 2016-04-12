@@ -7,16 +7,14 @@ require 'rubocop/rake_task'
 
 desc 'Run lint check RuboCop'
 task :rubocop do
-  if not(ENV['RUBOCOP']=='false')
-    begin
-      RuboCop::RakeTask.new do |t|
-        t.formatters = %w(files offenses)
-        t.options = [['--config', '.rubocop.yml']]
-        t.fail_on_error = true
-      end
-    rescue
-      puts 'Rubocop did not run'
+  begin
+    RuboCop::RakeTask.new do |t|
+      t.formatters = %w(files offenses)
+      t.options = [['--config', '.rubocop.yml']]
+      t.fail_on_error = true
     end
+  rescue
+    puts 'Rubocop did not run'
   end
 end
 
@@ -28,4 +26,4 @@ end
 desc 'Check test coverage'
 Coveralls::RakeTask.new
 
-task default: [:features, 'coveralls:push', :rubocop]
+task default: [:features, 'coveralls:push']
