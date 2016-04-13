@@ -1,5 +1,5 @@
 # rest_baby.rb
-# @author Dave McNulla of ResMed
+# @author Dave McNulla
 # Originated: 2011
 # This library was written to simplify communications with rest services.
 
