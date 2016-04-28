@@ -10,6 +10,7 @@ Build/Test | [![Build Status](https://travis-ci.org/dmcnulla/rest_baby.svg?branc
 Coverage | [![Coverage Status](https://coveralls.io/repos/dmcnulla/rest_baby/badge.svg?branch=v1_5&service=github)](https://coveralls.io/github/dmcnulla/rest_baby?branch=v1_5)
 Code Analysis | [![Code Climate](https://codeclimate.com/github/dmcnulla/rest_baby/badges/gpa.svg)](https://codeclimate.com/github/dmcnulla/rest_baby)
 Docs | [![Inline docs](http://inch-ci.org/github/dmcnulla/rest_baby.svg?branch=master)](http://inch-ci.org/github/dmcnulla/rest_baby)
+codeship | [![Build Status 2](https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master)
 
 ## Purpose
 
