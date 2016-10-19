@@ -24,17 +24,23 @@ matrix:
       jdk: openjdk7
     - rvm: 2.0.0
       jdk: oraclejdk7
-    - rvm: 2.1.0
+    - rvm: 2.1.10
       jdk: openjdk6
-    - rvm: 2.1.0
+    - rvm: 2.1.10
       jdk: openjdk7
-    - rvm: 2.1.0
+    - rvm: 2.1.10
       jdk: oraclejdk7
-    - rvm: 2.2.0
+    - rvm: 2.2.5
       jdk: openjdk6
-    - rvm: 2.2.0
+    - rvm: 2.2.5
       jdk: openjdk7
-    - rvm: 2.2.0
+    - rvm: 2.2.5
+      jdk: oraclejdk7
+    - rvm: 2.3.1
+      jdk: openjdk6
+    - rvm: 2.3.1
+      jdk: openjdk7
+    - rvm: 2.3.1
       jdk: oraclejdk7
     - rvm: rbx-2
       jdk: openjdk6
