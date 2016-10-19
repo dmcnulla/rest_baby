@@ -1,6 +1,6 @@
 # rest_baby
 
-Small rest client, supports ruby-2.0.0, ruby-2.1.0, ruby-2.2.0, jruby (based 1.9, tested with OpenJDK6, OpenJDK7, OracleJDK7, and OracleJDK8), plus rbx-2. You can only update docs in ruby, not jruby. You can only run reek with ruby 2.1 or above.
+Small rest client, supports ruby-2.0.0, ruby-2.1.0, and ruby-2.2.0. You can only run reek with ruby 2.1 or above. You *could* use jruby but some develop dependencies are not supported any longer, including coveralls and yard-cucumber.
 
 Item | Status
 --- | ---
