@@ -13,7 +13,7 @@ end
 group :documentation do
   if not(ENV['JRUBY'] || RUBY_PLATFORM == 'java')
     gem 'yard'
-    gem 'yard-cucumber', github: 'burtlo/yard-cucumber'
+    gem 'yard-cucumber', git: 'https://github.com/burtlo/yard-cucumber'
     gem 'redcarpet'
   end
 end

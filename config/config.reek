@@ -19,6 +19,9 @@ DataClump:
 FeatureEnvy:
   exclude:
   - RestBaby::Client#print_request
+InstanceVariableAssumption:
+  exclude:
+  - RestBaby::Client
 TooManyInstanceVariables:
   exclude:
   - RestBaby::Client

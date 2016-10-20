@@ -131,7 +131,7 @@ module RestBaby
 
     def print_request(request, uri)
       return nil unless @verbose
-      query = ((uri.query == '') ? '' : "?#{uri.query}")
+      query = uri.query == '' ? '' : "?#{uri.query}"
       puts ">> REQUEST\n"\
         ">  URL: #{uri.scheme}://#{uri.host}:#{uri.port}#{uri.path}#{query}\n"\
         ">  Headers:\n"\

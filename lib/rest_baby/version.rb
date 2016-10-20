@@ -1,4 +1,4 @@
 # Identify the version
 module RestBaby
-  VERSION = '1.5.1'.freeze
+  VERSION = '1.6.0'.freeze
 end
